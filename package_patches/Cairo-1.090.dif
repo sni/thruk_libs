@@ -1,0 +1,61 @@
+diff -ur /dev/shm/p5_thruk/src/Cairo-1.090/CairoFont.xs /tmp/Cairo-1.090/CairoFont.xs
+--- a/Cairo-1.090/CairoFont.xs	2011-11-27 08:56:45.000000000 +0100
++++ b/Cairo-1.090/CairoFont.xs	2012-04-08 20:14:43.000000000 +0200
+@@ -28,8 +28,12 @@
+ 
+ 	    /* These aren't wrapped yet: */
+ 	    case CAIRO_FONT_TYPE_WIN32:
++#if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 6, 0)
+ 	    case CAIRO_FONT_TYPE_QUARTZ:
++#endif
++#if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 8, 0)
+ 	    case CAIRO_FONT_TYPE_USER:
++#endif
+ 		package = "Cairo::FontFace";
+ 		break;
+ 
+diff -ur /dev/shm/p5_thruk/src/Cairo-1.090/CairoSurface.xs /tmp/Cairo-1.090/CairoSurface.xs
+--- a/Cairo-1.090/CairoSurface.xs	2011-11-27 08:56:45.000000000 +0100
++++ b/Cairo-1.090/CairoSurface.xs	2012-04-08 20:18:08.000000000 +0200
+@@ -98,9 +98,11 @@
+ 	    case CAIRO_SURFACE_TYPE_WIN32:
+ 	    case CAIRO_SURFACE_TYPE_BEOS:
+ 	    case CAIRO_SURFACE_TYPE_DIRECTFB:
++#if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 2, 5)
+ 	    case CAIRO_SURFACE_TYPE_OS2:
+ 	    case CAIRO_SURFACE_TYPE_WIN32_PRINTING:
+ 	    case CAIRO_SURFACE_TYPE_QUARTZ_IMAGE:
++#endif
+ #if CAIRO_VERSION >= CAIRO_VERSION_ENCODE(1, 10, 0)
+ 	    case CAIRO_SURFACE_TYPE_SCRIPT:
+ 	    case CAIRO_SURFACE_TYPE_QT:
+ 
+diff -ur /dev/shm/p5_thruk/src/Cairo-1.090/Makefile.PL /tmp/Cairo-1.090/Makefile.PL
+--- a/Cairo-1.090/Makefile.PL	2012-04-08 20:12:46.432522188 +0200
++++ b/Cairo-1.090/Makefile.PL	2012-04-08 20:32:17.000000000 +0200
+@@ -321,9 +321,6 @@
+ 		CAIRO_SURFACE_TYPE_BEOS
+ 		CAIRO_SURFACE_TYPE_DIRECTFB
+ 		CAIRO_SURFACE_TYPE_SVG
+-		CAIRO_SURFACE_TYPE_OS2
+-		CAIRO_SURFACE_TYPE_WIN32_PRINTING
+-		CAIRO_SURFACE_TYPE_QUARTZ_IMAGE
+ 	/];
+ 
+ 	$enums{cairo_svg_version_t} = [qw/
+@@ -405,6 +402,15 @@
+ 	$flags{cairo_text_cluster_flags_t} = [];
+ }
+ 
++if ($have_cairo_1_4) {
++	add_new_enum_values(
++		cairo_surface_type_t => [qw/
++		CAIRO_SURFACE_TYPE_OS2
++		CAIRO_SURFACE_TYPE_WIN32_PRINTING
++		CAIRO_SURFACE_TYPE_QUARTZ_IMAGE/]
++	);
++}
++
+ if ($have_cairo_1_10) {
+ 	add_new_enum_values(
+ 		cairo_surface_type_t => [
