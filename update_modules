@@ -26,5 +26,11 @@ for my $file (@modules) {
         print "no update available\n";
     } else {
         print "update available: $newversion\n";
+        my $downloaded = BuildHelper::download_module($modname, 0, 1);
+        if(scalar @{$downloaded} != 1) {
+            die("download failed: ".Dumper($downloaded));
+        }
+        `sed -i ../Makefile -e 's|$file|$downloaded->[0]|'`;
+        `rm file`;
     }
 }

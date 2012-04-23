@@ -97,8 +97,9 @@ sub download_deps {
 # download a module
 # needs a module name like: IO::All
 sub download_module {
-    my $mod = shift;
-    my $ver = shift || 0;
+    my $mod    = shift;
+    my $ver    = shift || 0;
+    my $no_dep = shift || 0;
 
     print "[INFO] download_module($mod, $ver)\n" if $verbose;
 
@@ -123,7 +124,7 @@ sub download_module {
     if( ! -f $tarball and !defined $already_downloaded{$urlpath}) {
         BuildHelper::cmd('wget --retry-connrefused -q "http://search.cpan.org'.$urlpath.'"');
         $already_downloaded{$urlpath} = 1;
-        BuildHelper::download_deps($tarball);
+        BuildHelper::download_deps($tarball) unless $no_dep == 1;
         push @downloaded, $tarball;
         print "downloaded $tarball\n";
     } else {
