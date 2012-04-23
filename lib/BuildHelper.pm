@@ -100,6 +100,7 @@ sub download_module {
     my $mod    = shift;
     my $ver    = shift || 0;
     my $no_dep = shift || 0;
+    my $quiet  = shift || 0;
 
     print "[INFO] download_module($mod, $ver)\n" if $verbose;
 
@@ -126,7 +127,7 @@ sub download_module {
         $already_downloaded{$urlpath} = 1;
         BuildHelper::download_deps($tarball) unless $no_dep == 1;
         push @downloaded, $tarball;
-        print "downloaded $tarball\n";
+        print "downloaded $tarball\n" unless $quiet;
     } else {
         if(!defined $deps_checked{$tarball}) {
             print "$tarball already downloaded\n";
@@ -327,13 +328,14 @@ sub get_url_for_module {
     our %url_cache;
     $mod = translate_module_name($mod);
     return $url_cache{$mod} if exists $url_cache{$mod};
-    my $out = BuildHelper::cmd("wget --retry-connrefused -O - 'http://search.cpan.org/perldoc?".$mod."'");
-    if($out =~ m/href="(\/CPAN\/authors\/id\/.*?\/.*?(\.tar\.gz|\.tgz|\.zip))">/) {
-        $url_cache{$mod} = $1;
-        return($1);
+    for my $url ('http://search.cpan.org/perldoc?'.$mod, 'http://search.cpan.org/dist/'.$mod) {
+        my $out = BuildHelper::cmd("wget --retry-connrefused -O - '".$url."'", 1);
+        if($out =~ m/href="(\/CPAN\/authors\/id\/.*?\/.*?(\.tar\.gz|\.tgz|\.zip))">/) {
+            $url_cache{$mod} = $1;
+            return($1);
+        }
     }
-    print "got no url:\n";
-    print $out;
+    print "cannot find $mod on cpan\n";
     exit;
 }
 
