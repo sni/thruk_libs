@@ -41,6 +41,7 @@ chdir('src') or die("cannot change dir 'src': $!");
 for my $module (@{$modules}) {
     if($module =~ m/^[\w\.\-]+(\.gz|\.zip|\.tgz)$/g) {
         BuildHelper::download_src($module);
+        print "downloaded $module\n";
         next;
     }
     $module =~ s/\//::/g;
@@ -50,6 +51,8 @@ for my $module (@{$modules}) {
     $downloaded = BuildHelper::download_module($module);
 }
 chdir('..') or die("cannot change dir '..': $!");
+
+exit unless defined $downloaded;
 
 # print result of all downloaded files
 if(scalar @{$downloaded} > 0) {

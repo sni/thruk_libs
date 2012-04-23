@@ -331,8 +331,9 @@ build: fetch
 prepack: build
 
 fetch:
-	for m in $(MODULES); do
-	    cd src && test -f $m || ./download_package $m
+	mkdir -p src
+	for m in $(MODULES); do \
+	    test -f src/$$m || ./download_package $$m; \
 	done
 
 
