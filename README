@@ -4,9 +4,18 @@ Thruk Librarys
 Installation
 ------------
 
-run 'make'. This will create a '/var/tmp/p5_thruk' folder with a
-dest/lib sub directory which can be used as 'local-lib' when you want
-to build thruk packages.
+1. cd /tmp
+2. git clone git://github.com/sni/thruk_libs.git
+3. cd /tmp/thruk_libs
+4. make
+
+You now have /var/tmp/p5_thruk/dest/ with all required perl modules.
+Move /var/tmp/p5_thruk/dest/lib/perl5 to the desired location and let
+the PERL5LIB environment variable point to it.
+
+ex.:
+
+  PERL5LIB=lib:/var/tmp/p5_thruk/dest/lib/perl5 ./script/thruk
 
 
 Updating

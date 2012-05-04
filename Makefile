@@ -335,7 +335,7 @@ prepack: build
 fetch:
 	mkdir -p src
 	for m in $(MODULES); do \
-	    test -f src/$$m || ./download_package $$m; \
+	    test -f src/$$m || ./download_package $$m || exit 1; \
 	done
 
 
