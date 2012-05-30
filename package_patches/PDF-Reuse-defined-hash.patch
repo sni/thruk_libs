@@ -1,0 +1,11 @@
+--- PDF-Reuse-0.35/Reuse.pm	2012-05-30 23:05:22.882948562 +0200
++++ PDF-Reuse-0.35/Reuse.pm	2012-05-30 23:07:12.475357670 +0200
+@@ -3680,7 +3680,7 @@
+   if (($effect eq 'print') && ($form{$fSource}[fVALID]) && ($refNr))
+   {   if ((! defined $interActive)
+       && ($sidnr == 1)
+-      &&  (defined %{$intAct{$fSource}[0]}) )
++      &&  (%{$intAct{$fSource}[0]}) )
+       {  $interActive = $infil . ' ' . $sidnr;
+          $interAktivSida = 1;
+       }

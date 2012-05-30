@@ -1,0 +1,7 @@
+GD
+ - fix overriden cc flags
+ - http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=628522
+ - https://rt.cpan.org/Public/Bug/Display.html?id=67990
+
+PDF::Reuse
+ - fix 'defined(%hash) is deprecated at blib/lib/PDF/Reuse.pm (autosplit into blib/lib/auto/PDF/Reuse/prDocForm.al) line 3683.
