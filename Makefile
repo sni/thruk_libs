@@ -288,7 +288,7 @@ MODULES = \
           Chart-Clicker-2.81.tar.gz \
           Catalyst-Plugin-Authentication-0.10018.tar.gz \
           Catalyst-Plugin-Authorization-Roles-0.09.tar.gz \
-          Catalyst-Plugin-Static-Simple-0.29.tar.gz \
+          Catalyst-Plugin-Static-Simple-0.30.tar.gz \
           Catalyst-Devel-1.36.tar.gz \
           Email-Date-Format-1.002.tar.gz \
           MIME-Lite-3.028.tar.gz \
