@@ -297,7 +297,12 @@ MODULES = \
           boolean-0.28.tar.gz \
           Any-Moose-0.18.tar.gz \
           Tie-IxHash-1.22.tar.gz \
-          MongoDB-0.45.tar.gz
+          MongoDB-0.45.tar.gz \
+          Net-SSLeay-1.49.tar.gz \
+          IO-Socket-SSL-1.80.tar.gz \
+          Mozilla-CA-20120823.tar.gz \
+          Net-HTTP-6.05.tar.gz \
+          LWP-Protocol-https-6.03.tar.gz
 
 
 build: fetch
