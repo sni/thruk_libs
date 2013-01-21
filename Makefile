@@ -299,7 +299,7 @@ MODULES = \
           boolean-0.28.tar.gz \
           Any-Moose-0.20.tar.gz \
           Tie-IxHash-1.22.tar.gz \
-          MongoDB-0.503.3.tar.gz \
+          MongoDB-0.45.tar.gz \
           LWP-Protocol-https-6.03.tar.gz \
           Mozilla-CA-20130114.tar.gz \
           Sub-Exporter-Progressive-0.001001.tar.gz \
