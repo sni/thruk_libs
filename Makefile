@@ -161,7 +161,6 @@ MODULES = \
           Math-Complex-1.59.tar.gz \
           Module-Load-Conditional-0.54.tar.gz \
           Module-Metadata-1.000011.tar.gz \
-          Module-Pluggable-4.5.tar.gz \
           Object-Signature-1.07.tar.gz \
           PDF-Reuse-0.35.tar.gz \
           Template-Timer-1.00.tar.gz \
@@ -182,6 +181,7 @@ MODULES = \
           ExtUtils-ParseXS-3.18.tar.gz \
           List-MoreUtils-0.33.tar.gz \
           Module-Build-0.4003.tar.gz \
+          Module-Pluggable-4.5.tar.gz \
           Module-Runtime-0.013.tar.gz \
           Module-ScanDeps-1.10.tar.gz \
           Params-Util-1.07.tar.gz \
@@ -300,8 +300,6 @@ MODULES = \
           Any-Moose-0.20.tar.gz \
           Tie-IxHash-1.22.tar.gz \
           MongoDB-0.503.3.tar.gz \
-          Net-SSLeay-1.52.tar.gz \
-          IO-Socket-SSL-1.81.tar.gz \
           LWP-Protocol-https-6.03.tar.gz \
           Mozilla-CA-20130114.tar.gz \
           Sub-Exporter-Progressive-0.001001.tar.gz \
