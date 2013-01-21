@@ -299,6 +299,8 @@ MODULES = \
           boolean-0.28.tar.gz \
           Any-Moose-0.20.tar.gz \
           Tie-IxHash-1.22.tar.gz \
+          Sub-Uplevel-0.24.tar.gz \
+          Test-Exception-0.31.tar.gz \
           MongoDB-0.45.tar.gz \
           LWP-Protocol-https-6.03.tar.gz \
           Mozilla-CA-20130114.tar.gz \
