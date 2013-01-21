@@ -169,7 +169,7 @@ MODULES = \
           Color-Library-0.021.tar.gz \
           Config-Any-0.23.tar.gz \
           HTML-Lint-2.20.tar.gz \
-          HTTP-Body-1.15.tar.gz \
+          HTTP-Body-1.17.tar.gz \
           HTTP-Cookies-6.01.tar.gz \
           HTTP-Daemon-6.01.tar.gz \
           Hash-Util-FieldHash-Compat-0.03.tar.gz \
