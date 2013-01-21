@@ -1,0 +1,18 @@
+Description: add $Config{ccflags} to CCFLAGS
+Origin: vendor
+Bug-Debian: http://bugs.debian.org/637730
+Forwarded: no
+Author: gregor herrmann <gregoa@debian.org>
+Last-Update: 2011-08-14
+
+--- a/Makefile.PL
++++ b/Makefile.PL
+@@ -245,7 +245,7 @@
+     'PL_FILES'  => {'bdf_scripts/bdf2gdfont.PLS' => 'bdf_scripts/bdf2gdfont.pl',
+ 		    'GD/Image.pm.PLS' => 'GD/Image.pm',
+ 		   },
+-    'CCFLAGS'    => '-Wformat=0',
++    'CCFLAGS'    => "-Wformat=0 $Config{ccflags}",
+     'EXE_FILES' => ['bdf_scripts/bdf2gdfont.pl'],
+     'AUTHOR'    => 'Lincoln Stein (lstein@cshl.org)',
+     'ABSTRACT'  => 'Interface to Gd Graphics Library',
