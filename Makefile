@@ -5,7 +5,7 @@ P5TMPDIST = /var/tmp/p5_thruk
 endif
 
 MODULES = \
-          ExtUtils-MakeMaker-6.64.tar.gz \
+          ExtUtils-MakeMaker-6.62.tar.gz \
           AppConfig-1.66.tar.gz \
           Attribute-Handlers-0.93.tar.gz \
           B-Keywords-1.12.tar.gz \
@@ -319,6 +319,7 @@ build: fetch
 	unset PERL_LOCAL_LIB_ROOT; \
 	unset PERL_MM_OPT; \
 	cd $(P5TMPDIST)/src && \
+	    PATH=$(P5TMPDIST)/dest/bin:$$PATH \
 	    PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/dest \
 	    MODULEBUILDRC=$(P5TMPDIST)/dest/.modulebuildrc \
 	    PERL5LIB=$(P5TMPDIST)/dest/lib/perl5 \
