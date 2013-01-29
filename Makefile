@@ -74,7 +74,7 @@ MODULES = \
           Module-CoreList-2.79.tar.gz \
           Module-Find-0.11.tar.gz \
           Module-Load-0.22.tar.gz \
-          Monitoring-Availability-0.40.tar.gz \
+          Monitoring-Availability-0.42.tar.gz \
           NEXT-0.65.tar.gz \
           Net-HTTP-6.05.tar.gz \
           Net-Server-2.007.tar.gz \
