@@ -305,7 +305,9 @@ MODULES = \
           LWP-Protocol-https-6.03.tar.gz \
           Mozilla-CA-20130114.tar.gz \
           Sub-Exporter-Progressive-0.001001.tar.gz \
-          Safe-Isa-1.000002.tar.gz
+          Safe-Isa-1.000002.tar.gz \
+          Devel-Cycle-1.11.tar.gz \
+          CatalystX-LeakChecker-0.06.tar.gz
 
 
 build: fetch
