@@ -307,7 +307,9 @@ MODULES = \
           Sub-Exporter-Progressive-0.001001.tar.gz \
           Safe-Isa-1.000002.tar.gz \
           Devel-Cycle-1.11.tar.gz \
-          CatalystX-LeakChecker-0.06.tar.gz
+          CatalystX-LeakChecker-0.06.tar.gz \
+          Net-Curl-0.25.tar.gz \
+          LWP-Protocol-Net-Curl-0.013.tar.gz
 
 
 build: fetch
