@@ -308,6 +308,7 @@ MODULES = \
           Safe-Isa-1.000002.tar.gz \
           Devel-Cycle-1.11.tar.gz \
           CatalystX-LeakChecker-0.06.tar.gz \
+          ExtUtils-PkgConfig-1.14.tar.gz \
           Net-Curl-0.25.tar.gz \
           LWP-Protocol-Net-Curl-0.013.tar.gz
 
