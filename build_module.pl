@@ -18,6 +18,8 @@ if($ARGV[0] eq '-p') {
     $TARGET = shift @ARGV;
 }
 
+chomp(my $distro = `/opt/share/build/distro`);
+
 if(!defined $ENV{'PERL5LIB'} or $ENV{'PERL5LIB'} eq "") {
     print "dont call $0 directly, use the 'make'\n";
     exit 1;
@@ -29,6 +31,7 @@ $ENV{'CATALYST_DEVEL_NO_510_CHECK'} = 1;
 my $x = 1;
 my $max = scalar @ARGV;
 for my $mod (@ARGV) {
+    next if $mod =~ m/curl/mxi and $distro =~ m/^rhel5/mxi;
     BuildHelper::install_module($mod, $TARGET, $PERL, $verbose, $x, $max) || exit 1;
     $x++;
 }
