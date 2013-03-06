@@ -310,7 +310,9 @@ MODULES = \
           CatalystX-LeakChecker-0.06.tar.gz \
           ExtUtils-PkgConfig-1.14.tar.gz \
           Net-Curl-0.25.tar.gz \
-          LWP-Protocol-Net-Curl-0.013.tar.gz
+          LWP-Protocol-Net-Curl-0.013.tar.gz \
+          DBI-1.623.tar.gz \
+          DBD-mysql-4.022.tar.gz
 
 
 build: fetch
@@ -319,6 +321,7 @@ build: fetch
 	rsync -av src/. $(P5TMPDIST)/src/.
 	rsync -av build_module.pl lib/BuildHelper.pm lib/Module $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
+	unset LANG; \
 	unset PERL5LIB; \
 	unset PERL_MB_OPT; \
 	unset PERL_LOCAL_LIB_ROOT; \
@@ -345,6 +348,7 @@ build: fetch
 	find $(P5TMPDIST)/dest/lib -type f -name ttfmod.pl -delete
 	find $(P5TMPDIST)/dest/lib -type f -name changes -delete
 	find $(P5TMPDIST)/dest/lib -type f -name perllocal.pod -delete
+	find $(P5TMPDIST)/dest/lib -type f -name dbixs_rev.pl -delete
 	find $(P5TMPDIST)/dest/lib -name \*.pm -exec chmod 644 {} \;
 	find $(P5TMPDIST)/dest/lib -name \*.pod -exec chmod 644 {} \;
 	find $(P5TMPDIST)/dest/lib -depth -type d -empty -exec rmdir {} \;
