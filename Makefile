@@ -312,7 +312,8 @@ MODULES = \
           Net-Curl-0.25.tar.gz \
           LWP-Protocol-Net-Curl-0.013.tar.gz \
           DBI-1.623.tar.gz \
-          DBD-mysql-4.022.tar.gz
+          DBD-mysql-4.022.tar.gz \
+          Stream-Buffered-0.02.tar.gz
 
 
 build: fetch
