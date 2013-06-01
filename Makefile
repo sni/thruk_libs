@@ -301,7 +301,6 @@ MODULES = \
           Tie-IxHash-1.22.tar.gz \
           Sub-Uplevel-0.24.tar.gz \
           Test-Exception-0.31.tar.gz \
-          MongoDB-0.700.0.tar.gz \
           LWP-Protocol-https-6.03.tar.gz \
           Mozilla-CA-20130114.tar.gz \
           Sub-Exporter-Progressive-0.001001.tar.gz \
@@ -313,7 +312,8 @@ MODULES = \
           LWP-Protocol-Net-Curl-0.013.tar.gz \
           DBI-1.623.tar.gz \
           DBD-mysql-4.022.tar.gz \
-          Stream-Buffered-0.02.tar.gz
+          Stream-Buffered-0.02.tar.gz \
+          MongoDB-0.700.0.tar.gz
 
 
 build: fetch
