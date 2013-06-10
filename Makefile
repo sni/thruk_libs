@@ -240,7 +240,7 @@ MODULES = \
           Class-Load-0.20.tar.gz \
           Class-Load-XS-0.06.tar.gz \
           DateTime-TimeZone-1.56.tar.gz \
-          Moose-2.0604.tar.gz \
+          Moose-2.0802.tar.gz \
           MooseX-Aliases-0.10.tar.gz \
           MooseX-AttributeHelpers-0.23.tar.gz \
           MooseX-Emulate-Class-Accessor-Fast-0.00903.tar.gz \
