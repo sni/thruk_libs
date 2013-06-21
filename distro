@@ -1,0 +1,65 @@
+#!/bin/sh
+
+set -e
+
+FULL=1
+if [ "$1" = "-s" ]; then
+   FULL=0
+fi
+
+UNAME_S=$(uname -s)
+UNAME_R=$(uname -r)
+
+# RedHat / CentOS
+if [ -e /etc/redhat-release ]; then
+    # CentOS release 5.4 (Final)
+    # CentOS Linux release 6.0 (Final)
+    # CentOS release 6.1 (Final)
+    VERSION=$(cat /etc/redhat-release | sed -e 's/^[a-zA-Z\ ]*\ \([0-9\.]*\)\ *.*/\1/')
+    if [ $FULL -eq 0 ]; then
+        VERSION=${VERSION%.*}
+    fi
+    echo "rhel$VERSION"
+    exit 0
+fi
+
+# SLES
+if [ -e /etc/SuSE-release ]; then
+    # SLES 11
+    VERSION=$(sed -rn 's/^VERSION = (.*)/\1/p' < /etc/SuSE-release)
+    SP=$(sed -rn 's/^PATCHLEVEL = (.*)/\1/p' < /etc/SuSE-release)
+    if [ "$SP" != "" -a "$SP" != "0" ]; then
+        echo "sles${VERSION}sp$SP"
+        exit 0
+    else
+        echo "sles${VERSION}"
+        exit 0
+    fi
+fi
+
+# Ubuntu
+if [ -e /etc/lsb-release ]; then
+    . /etc/lsb-release
+    DISTRIB_ID=$( echo "$DISTRIB_ID" | tr '[A-Z]' '[a-z]')
+    echo "$DISTRIB_ID$DISTRIB_RELEASE"
+    exit 0
+fi
+
+# Debian
+if [ -e /etc/debian_version ]; then
+    VERSION=$(cat /etc/debian_version)
+    VERSION=${VERSION%%.*}
+    if [ $VERSION = 'wheezy/sid' ]; then VERSION="7"; fi
+    if [ $VERSION = 'jessie/sid' ]; then VERSION="8"; fi
+    echo "debian$VERSION"
+    exit 0
+fi
+
+# Freebsd
+if [ $UNAME_S = "FreeBSD" ]; then
+    VERSION=${UNAME_R%%.*}
+    echo "freebsd$VERSION"
+    exit 0
+fi
+
+exit 1
