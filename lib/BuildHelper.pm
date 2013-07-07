@@ -400,8 +400,14 @@ sub install_module {
             if($? != 0 ) { die("error: rc $?\n".`cat $LOG`."\n"); }
         } elsif( -f "Makefile.PL" ) {
             `sed -i -e 's/auto_install;//g' Makefile.PL`;
-            `echo "\n\n\n" | $PERL Makefile.PL $makefile_opts >> $LOG 2>&1 && make -j 5 >> $LOG 2>&1 && make install >> $LOG 2>&1`;
-            if($? != 0 ) { die("error: rc $?\n".`cat $LOG`."\n"); }
+            my $rc;
+            # retry because sometimes Makefile.PL will be rebuild due to broken time
+            for my $retry (1..3) {
+                `echo "\n\n\n" | $PERL Makefile.PL $makefile_opts >> $LOG 2>&1 && make -j 5 >> $LOG 2>&1 && make install >> $LOG 2>&1`;
+                $rc = $?;
+                last if $rc == 0;
+            }
+            if($rc != 0 ) { die("error: rc $rc\n".`cat $LOG`."\n"); }
         } else {
             die("error: no Build.PL or Makefile.PL found in $file!\n");
         }
