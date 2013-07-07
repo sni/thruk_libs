@@ -320,7 +320,7 @@ build: fetch
 	mkdir -p $(P5TMPDIST)/dest
 	mkdir -p $(P5TMPDIST)/src
 	rsync -av src/. $(P5TMPDIST)/src/.
-	rsync -av build_module.pl lib/BuildHelper.pm lib/Module $(P5TMPDIST)/src/.
+	rsync -av build_module.pl distro lib/BuildHelper.pm lib/Module $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
 	unset LANG; \
 	unset PERL5LIB; \
