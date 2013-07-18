@@ -313,7 +313,8 @@ MODULES = \
           DBI-1.623.tar.gz \
           DBD-mysql-4.022.tar.gz \
           Stream-Buffered-0.02.tar.gz \
-          MongoDB-0.700.0.tar.gz
+          MongoDB-0.700.0.tar.gz \
+          Crypt-SSLeay-0.64.tar.gz
 
 
 build: fetch

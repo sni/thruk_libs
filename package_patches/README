@@ -5,3 +5,6 @@ GD
 
 PDF::Reuse
  - fix 'defined(%hash) is deprecated at blib/lib/PDF/Reuse.pm (autosplit into blib/lib/auto/PDF/Reuse/prDocForm.al) line 3683.
+
+Crypt::SSLeay
+  - Crypt-SSLeay-threads.patch (https://rt.cpan.org/Public/Bug/Display.html?id=41007)
