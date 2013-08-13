@@ -3,7 +3,6 @@
 use warnings;
 use strict;
 use lib 'lib';
-use Data::Dumper;
 use BuildHelper;
 
 BEGIN {
@@ -41,15 +40,6 @@ for my $module (@{$modules}) {
         print "downloaded $module\n";
         next;
     }
-    eval {
-        require YAML; YAML->import();
-    };
-    die("YAML required: ".$@) if $@;
-    eval {
-        require JSON::XS; JSON::XS->import();
-    };
-    die("JSON::XS required: ".$@) if $@;
-
     $module =~ s/\//::/g;
     $module =~ s/\-/::/g;
     $module =~ s/\.pm$//g;

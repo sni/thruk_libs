@@ -1,7 +1,5 @@
-GD
- - fix overriden cc flags
- - http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=628522
- - https://rt.cpan.org/Public/Bug/Display.html?id=67990
+File::Slurp (9999.19)
+- fix portability warning (https://rt.cpan.org/Public/Bug/Display.html?id=71207)
 
-PDF::Reuse
+PDF::Reuse (0.35)
  - fix 'defined(%hash) is deprecated at blib/lib/PDF/Reuse.pm (autosplit into blib/lib/auto/PDF/Reuse/prDocForm.al) line 3683.
