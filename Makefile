@@ -24,7 +24,7 @@ MODULES = \
           Crypt-RC4-2.02.tar.gz \
           Data-Dump-1.22.tar.gz \
           Data-Dumper-2.145.tar.gz \
-          Devel-PPPort-3.20.tar.gz \
+          Devel-PPPort-3.21.tar.gz \
           Devel-StackTrace-1.30.tar.gz \
           Devel-StackTrace-AsHTML-0.14.tar.gz \
           Devel-Symdump-2.10.tar.gz \
@@ -69,7 +69,7 @@ MODULES = \
           Locale-Maketext-Simple-0.21.tar.gz \
           Log-Log4perl-1.42.tar.gz \
           MIME-Base64-3.14.tar.gz \
-          MIME-Types-2.01.tar.gz \
+          MIME-Types-2.02.tar.gz \
           Module-CoreList-2.96.tar.gz \
           Module-Load-0.24.tar.gz \
           Monitoring-Availability-0.46.tar.gz \
@@ -92,7 +92,7 @@ MODULES = \
           Pod-Simple-3.28.tar.gz \
           Pod-Spell-1.05.tar.gz \
           Readonly-1.03.tar.gz \
-          Scalar-List-Utils-1.30.tar.gz \
+          Scalar-List-Utils-1.31.tar.gz \
           Set-Infinite-0.65.tar.gz \
           Set-Object-1.31.tar.gz \
           Spreadsheet-ParseExcel-0.59.tar.gz \
@@ -116,9 +116,9 @@ MODULES = \
           Thread-Semaphore-2.12.tar.gz \
           Tie-RefHash-1.39.tar.gz \
           Tie-ToObject-0.03.tar.gz \
-          Time-HiRes-1.9725.tar.gz \
+          Time-HiRes-1.9726.tar.gz \
           Time-Local-1.2300.tar.gz \
-          Try-Tiny-0.16.tar.gz \
+          Try-Tiny-0.18.tar.gz \
           UNIVERSAL-isa-1.20120726.tar.gz \
           URI-1.60.tar.gz \
           Variable-Magic-0.52.tar.gz \
@@ -134,7 +134,7 @@ MODULES = \
           podlators-2.5.1.tar.gz \
           threads-1.87.tar.gz \
           threads-shared-1.43.tar.gz \
-          version-0.9902.tar.gz \
+          version-0.9903.tar.gz \
           Archive-Tar-1.92.tar.gz \
           Bit-Vector-7.3.tar.gz \
           CGI.pm-3.63.tar.gz \
@@ -189,7 +189,7 @@ MODULES = \
           ExtUtils-Helpers-0.021.tar.gz \
           ExtUtils-InstallPaths-0.009.tar.gz \
           Module-Build-Tiny-0.025.tar.gz \
-          Starman-0.4004.tar.gz \
+          Starman-0.4006.tar.gz \
           Test-Pod-1.48.tar.gz \
           Tree-Simple-1.18.tar.gz \
           Tree-Simple-VisitorFactory-0.10.tar.gz \
@@ -277,7 +277,6 @@ MODULES = \
           Catalyst-Plugin-Redirect-0.02.tar.gz \
           Catalyst-Plugin-Session-0.37.tar.gz \
           Catalyst-Plugin-StackTrace-0.12.tar.gz \
-          Catalyst-Plugin-SubRequest-0.20.tar.gz \
           Catalyst-View-PDF-Reuse-0.04.tar.gz \
           Chart-Clicker-2.86.tar.gz \
           Catalyst-Plugin-Authentication-0.10023.tar.gz \
@@ -297,8 +296,8 @@ MODULES = \
           Safe-Isa-1.000003.tar.gz \
           Devel-Cycle-1.11.tar.gz \
           CatalystX-LeakChecker-0.06.tar.gz \
-          Net-Curl-0.3.tar.gz \
-          LWP-Protocol-Net-Curl-0.017.tar.gz \
+          Net-Curl-0.31.tar.gz \
+          LWP-Protocol-Net-Curl-0.018.tar.gz \
           DBI-1.628.tar.gz \
           DBD-mysql-4.023.tar.gz \
           Stream-Buffered-0.02.tar.gz \
