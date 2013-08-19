@@ -318,6 +318,7 @@ build: fetch
 	cd $(P5TMPDIST)/src && \
 	    PATH=$(P5TMPDIST)/dest/bin:$$PATH \
 	    PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/dest \
+	    PERL_MB_OPT=--install_base=$(P5TMPDIST)/dest \
 	    MODULEBUILDRC=$(P5TMPDIST)/dest/.modulebuildrc \
 	    PERL5LIB=$(P5TMPDIST)/dest/lib/perl5 \
 	    ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
