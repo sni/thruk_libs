@@ -62,6 +62,7 @@ MODULES = \
           HTTP-Date-6.02.tar.gz \
           HTTP-Parser-XS-0.16.tar.gz \
           Hash-MultiValue-0.15.tar.gz \
+          Hash-Util-FieldHash-Compat-0.03.tar.gz \
           IO-1.25.tar.gz \
           IO-Compress-2.062.tar.gz \
           IO-String-1.08.tar.gz \
@@ -76,7 +77,7 @@ MODULES = \
           Log-Log4perl-1.42.tar.gz \
           MIME-Base64-3.14.tar.gz \
           MIME-Types-2.02.tar.gz \
-          Module-CoreList-2.96.tar.gz \
+          Module-CoreList-2.97.tar.gz \
           Module-Load-0.24.tar.gz \
           Monitoring-Availability-0.46.tar.gz \
           Mozilla-CA-20130114.tar.gz \
@@ -134,7 +135,7 @@ MODULES = \
           WWW-RobotRules-6.02.tar.gz \
           XSLoader-0.16.tar.gz \
           YAML-0.84.tar.gz \
-          YAML-Tiny-1.51.tar.gz \
+          YAML-Tiny-1.53.tar.gz \
           base-2.18.tar.gz \
           boolean-0.30.tar.gz \
           common-sense-3.72.tar.gz \
@@ -166,7 +167,6 @@ MODULES = \
           HTTP-Message-6.06.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \
           HTTP-Request-AsCGI-1.2.tar.gz \
-          Hash-Util-FieldHash-Compat-0.03.tar.gz \
           JSON-XS-2.34.tar.gz \
           MIME-Lite-3.029.tar.gz \
           Math-Complex-1.59.tar.gz \
@@ -195,7 +195,7 @@ MODULES = \
           ExtUtils-ParseXS-3.21.tar.gz \
           List-MoreUtils-0.33.tar.gz \
           Module-Build-0.4007.tar.gz \
-          Module-Build-Tiny-0.025.tar.gz \
+          Module-Build-Tiny-0.026.tar.gz \
           Module-Pluggable-4.8.tar.gz \
           Module-Runtime-0.013.tar.gz \
           Module-ScanDeps-1.10.tar.gz \

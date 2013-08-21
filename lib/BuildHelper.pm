@@ -17,8 +17,10 @@ my $verbose = 0;
 # is this a core module?
 sub is_core_module {
     my($module) = @_;
-    my @v = split/\./, $Config{'version'};
-    my $v = $v[0] + $v[1]/1000;
+    #my @v = split/\./, $Config{'version'};
+    #my $v = $v[0] + $v[1]/1000;
+    # use fixed version: 5.008, otherwise we would to sort modules on the oldes possible host
+    my $v = "5.008";
     if(exists $Module::CoreList::version{$v}{$module}) {
         return $Module::CoreList::version{$v}{$module} || 0;
     }
