@@ -25,6 +25,10 @@ for my $file (@modules) {
         print "skipped, cpan points to wrong module\n";
         next;
     }
+    if($file =~ m/^File-Temp\-/mx) {
+        print "skipped, broken since 0.22\n";
+        next;
+    }
 
     my($modname,$modversion) = BuildHelper::file_to_module($file);
     my $urlpath = BuildHelper::get_url_for_module($modname);

@@ -53,7 +53,7 @@ MODULES = \
           File-ShareDir-1.03.tar.gz \
           File-ShareDir-Install-0.04.tar.gz \
           File-Slurp-9999.19.tar.gz \
-          File-Temp-0.2301.tar.gz \
+          File-Temp-0.22.tar.gz \
           Filesys-Notify-Simple-0.12.tar.gz \
           Filter-1.49.tar.gz \
           GD-2.50.tar.gz \
