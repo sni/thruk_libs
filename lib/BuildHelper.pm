@@ -10,8 +10,13 @@ use lib '/var/tmp/p5_dist/dest/lib/perl5';
 use Storable qw/lock_store lock_retrieve/;
 use Cwd;
 
+####################################
+# Settings
 $Data::Dumper::Sortkeys = 1;
 my $verbose = 0;
+my $additional_deps = {
+  'IO' => { 'ExtUtils::ParseXS' => '3.21' },
+};
 
 ####################################
 # is this a core module?
@@ -60,6 +65,7 @@ sub get_deps {
     my $meta = get_meta_for_tarball($file);
 
     my $deps = BuildHelper::get_deps_from_meta($meta);
+    add_additional_deps($file, $deps);
     $deps_cache{$file} = $deps;
     for my $dep (keys %{$deps}) {
         my $depv = $deps->{$dep};
@@ -203,14 +209,30 @@ sub get_all_deps {
     alarm(60);
     my $data;
     if(-f '.deps.cache') {
-        $data = lock_retrieve('.deps.cache') or die("cannot read .deps.cache: $!");
+        # this may fail due to mismatching hosts systems
+        eval {
+            $data = lock_retrieve('.deps.cache') or die("cannot read .deps.cache: $!");
+        };
+        warn($@) if $@;
+
+        # remove all tarballs from cache which no longer exist
+        for my $tf (keys %{$data->{'deps'}}) {
+            if(!-e $tf) {
+                delete $data->{'deps'}->{$tf};
+                for my $key (keys %{$data->{'files'}}) {
+                    delete $data->{'files'}->{$key} if $data->{'files'}->{$key} eq $tf;
+                }
+            }
+        }
     }
     alarm(0);
     my $cwd = cwd();
     chdir("src") or die("cannot change to src dir");
+    my @tarballs = glob("*.tgz *.tar.gz *.zip");
+
     %deps_cache = %{$data->{'deps'}}  if defined $data->{'deps'};
     %deps_files = %{$data->{'files'}} if defined $data->{'files'};
-    for my $tarball (glob("*.tgz *.tar.gz *.zip")) {
+    for my $tarball (@tarballs) {
         BuildHelper::get_deps($tarball, undef, $quiet) unless defined $deps_cache{$tarball};
     }
 
@@ -571,6 +593,19 @@ sub get_deps_from_meta {
         $stripped_deps->{$dep} = $val;
     }
     return $stripped_deps;
+}
+
+####################################
+# add additional dependencies
+sub add_additional_deps {
+    my($file, $deps) = @_;
+    my($modname, $modvers) = file_to_module($file);
+    if($additional_deps->{$modname}) {
+        for my $key (keys %{$additional_deps->{$modname}}) {
+            $deps->{$key} = $additional_deps->{$modname}->{$key};
+        }
+    }
+    return $deps;
 }
 
 ####################################

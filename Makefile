@@ -63,7 +63,6 @@ MODULES = \
           HTTP-Parser-XS-0.16.tar.gz \
           Hash-MultiValue-0.15.tar.gz \
           Hash-Util-FieldHash-Compat-0.03.tar.gz \
-          IO-1.25.tar.gz \
           IO-Compress-2.062.tar.gz \
           IO-String-1.08.tar.gz \
           IO-Zlib-1.10.tar.gz \
@@ -178,21 +177,18 @@ MODULES = \
           Test-Pod-Coverage-1.08.tar.gz \
           Thread-Queue-3.02.tar.gz \
           HTML-Lint-2.20.tar.gz \
-          HTTP-Body-1.17.tar.gz \
           HTTP-Cookies-6.01.tar.gz \
           HTTP-Daemon-6.01.tar.gz \
           Module-Load-Conditional-0.54.tar.gz \
           Monitoring-Livestatus-0.74.tar.gz \
-          Plack-1.0028.tar.gz \
-          Plack-Middleware-ReverseProxy-0.15.tar.gz \
           libwww-perl-6.05.tar.gz \
           IPC-Cmd-0.84.tar.gz \
           LWP-Protocol-Net-Curl-0.018.tar.gz \
           LWP-Protocol-https-6.04.tar.gz \
-          Plack-Test-ExternalServer-0.01.tar.gz \
           XML-Parser-2.41.tar.gz \
           ExtUtils-CBuilder-0.280205.tar.gz \
           ExtUtils-ParseXS-3.21.tar.gz \
+          IO-1.25.tar.gz \
           List-MoreUtils-0.33.tar.gz \
           Module-Build-0.4007.tar.gz \
           Module-Build-Tiny-0.026.tar.gz \
@@ -204,7 +200,6 @@ MODULES = \
           Path-Class-0.32.tar.gz \
           Socket-2.011.tar.gz \
           Spreadsheet-WriteExcel-2.39.tar.gz \
-          Starman-0.4006.tar.gz \
           Test-Pod-1.48.tar.gz \
           Tie-IxHash-1.23.tar.gz \
           Tree-Simple-1.18.tar.gz \
@@ -225,6 +220,7 @@ MODULES = \
           Dist-CheckConflicts-0.09.tar.gz \
           Excel-Template-0.34.tar.gz \
           File-BOM-0.14.tar.gz \
+          HTTP-Body-1.17.tar.gz \
           MRO-Compat-0.12.tar.gz \
           Module-Implementation-0.07.tar.gz \
           Module-Install-1.06.tar.gz \
@@ -239,6 +235,10 @@ MODULES = \
           Perl-Critic-Dynamic-0.05.tar.gz \
           Perl-Critic-Nits-v1.0.0.tar.gz \
           Perl-Critic-Policy-Dynamic-NoIndirect-0.06.tar.gz \
+          Plack-1.0028.tar.gz \
+          Plack-Middleware-ReverseProxy-0.15.tar.gz \
+          Plack-Test-ExternalServer-0.01.tar.gz \
+          Starman-0.4006.tar.gz \
           Sub-Exporter-0.986.tar.gz \
           Test-Perl-Critic-1.02.tar.gz \
           B-Hooks-EndOfScope-0.12.tar.gz \
