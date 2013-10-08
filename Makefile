@@ -302,7 +302,8 @@ MODULES = \
           Catalyst-Devel-1.39.tar.gz \
           Catalyst-Plugin-Authentication-0.10023.tar.gz \
           Catalyst-Plugin-Authorization-Roles-0.09.tar.gz \
-          Pod-Usage-1.63.tar.gz
+          Pod-Usage-1.63.tar.gz \
+          LWP-Protocol-connect-6.06.tar.gz
 
 
 build: fetch
