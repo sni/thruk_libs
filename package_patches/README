@@ -3,6 +3,7 @@ File::Slurp (9999.19)
 
 PDF::Reuse (0.35)
  - fix 'defined(%hash) is deprecated at blib/lib/PDF/Reuse.pm (autosplit into blib/lib/auto/PDF/Reuse/prDocForm.al) line 3683.
+ - defined(@array) is deprecated at ...lib/PDF/Reuse.pm line 993.
 
 Catalyst::Runtime (5.90042)
  - plugin order breaks compress plugin (https://rt.cpan.org/Ticket/Display.html?id=87998)

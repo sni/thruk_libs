@@ -1,5 +1,16 @@
---- PDF-Reuse-0.35/Reuse.pm	2012-05-30 23:05:22.882948562 +0200
-+++ PDF-Reuse-0.35/Reuse.pm	2012-05-30 23:07:12.475357670 +0200
+--- a/Reuse.pm	2013-10-10 14:32:55.628204529 +0200
++++ b/Reuse.pm	2013-10-10 14:33:11.516189459 +0200
+@@ -989,8 +989,8 @@
+ 
+     my $tSida = $sida + 1;
+     if ((@annots) 
+-    || (defined @{$links{'-1'}}) 
+-    || (defined @{$links{$tSida}}))
++    || (@{$links{'-1'}})
++    || (@{$links{$tSida}}))
+     {  $sidObjekt .= '/Annots ' . mergeLinks() . ' 0 R';
+     }
+     if (defined $AAPageSaved)
 @@ -3680,7 +3680,7 @@
    if (($effect eq 'print') && ($form{$fSource}[fVALID]) && ($refNr))
    {   if ((! defined $interActive)
