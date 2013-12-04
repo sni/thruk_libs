@@ -80,7 +80,6 @@ MODULES = \
           Module-Load-0.24.tar.gz \
           Mozilla-CA-20130114.tar.gz \
           NEXT-0.65.tar.gz \
-          Net-Curl-0.31.tar.gz \
           Net-HTTP-6.06.tar.gz \
           Net-Server-2.007.tar.gz \
           OLE-Storage_Lite-0.19.tar.gz \
@@ -182,7 +181,6 @@ MODULES = \
           Monitoring-Livestatus-0.74.tar.gz \
           libwww-perl-6.05.tar.gz \
           IPC-Cmd-0.84.tar.gz \
-          LWP-Protocol-Net-Curl-0.018.tar.gz \
           LWP-Protocol-https-6.04.tar.gz \
           XML-Parser-2.41.tar.gz \
           ExtUtils-CBuilder-0.280205.tar.gz \
@@ -308,8 +306,8 @@ MODULES = \
 build: fetch
 	mkdir -p $(P5TMPDIST)/dest
 	mkdir -p $(P5TMPDIST)/src
-	rsync -av src/. $(P5TMPDIST)/src/.
-	rsync -av build_module.pl distro lib/BuildHelper.pm lib/Module $(P5TMPDIST)/src/.
+	rsync -a src/. $(P5TMPDIST)/src/.
+	rsync -a build_module.pl distro lib/BuildHelper.pm lib/Module $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
 	unset LANG; \
 	unset PERL5LIB; \
