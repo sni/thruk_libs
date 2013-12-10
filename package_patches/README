@@ -7,3 +7,7 @@ PDF::Reuse (0.35)
 
 Catalyst::Runtime (5.90042)
  - plugin order breaks compress plugin (https://rt.cpan.org/Ticket/Display.html?id=87998)
+
+LWP-Protocol-connect (6.06)
+ - Bad arg length for Socket6::unpack_sockaddr_in6, length is 16, should be 28 at .../Socket6.pm line 282.
+   workarounded with https://github.com/benningm/LWP-Protocol-connect/pull/1/files

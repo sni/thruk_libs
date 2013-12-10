@@ -1,0 +1,27 @@
+From 44efc1ebfbc0016c86f37a49fbed6cfec3c4c1d5 Mon Sep 17 00:00:00 2001
+From: Yasutaka ATARASHI <yakex@cpan.org>
+Date: Mon, 29 Jul 2013 19:11:15 +0900
+Subject: [PATCH] Add hack for IO::Socket::INET6.
+
+---
+ lib/LWP/Protocol/https/connect/Socket.pm | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/lib/LWP/Protocol/https/connect/Socket.pm b/lib/LWP/Protocol/https/connect/Socket.pm
+index 1070d75..bb1f802 100644
+--- a/lib/LWP/Protocol/https/connect/Socket.pm
++++ b/lib/LWP/Protocol/https/connect/Socket.pm
+@@ -34,6 +34,10 @@ sub new {
+         }
+         die($status);
+     }
++# HACK: If IO::Socket::SSL uses IO::Socket::INET6, some method fails for IPv4 hosts because socket domain is considered as AF_INET6,
++#       like "Bad arg length for Socket6::unpack_sockaddr_in6, length is 16, should be 28".
++#       $args{Domain} is not used for setting up socket domain, so force override IO::Socket internal field.
++    ${*$ssl}{'io_socket_domain'} = ${*$conn}{'io_socket_domain'} if exists ${*$conn}{'io_socket_domain'};
+     $ssl->http_configure( \%args );
+     return $ssl;
+ }
+-- 
+1.8.5.1
+
