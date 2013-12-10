@@ -322,11 +322,12 @@ build: fetch
 	    PERL5LIB=$(P5TMPDIST)/dest/lib/perl5 \
 	    ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
 	# clean up
-	find $(P5TMPDIST)/dest/lib -name \*.so -exec chmod 600 {} \; -exec strip {} \; -exec chmod 555 {} \;
+	find $(P5TMPDIST)/dest/lib -name \*.so -exec chmod 644 {} \; -exec strip {} \;
 	find $(P5TMPDIST)/dest/lib -size 0 -delete
 	find $(P5TMPDIST)/dest/lib -name \*.h -delete
 	find $(P5TMPDIST)/dest/lib -name \*.txt -delete
 	find $(P5TMPDIST)/dest/lib -name qd.pl -delete
+	find $(P5TMPDIST)/dest/lib -name mk-ca-bundle.pl -delete
 	find $(P5TMPDIST)/dest/lib -name benchmark.pl -delete
 	find $(P5TMPDIST)/dest/lib -name .packlist -delete
 	find $(P5TMPDIST)/dest/lib -type f -name xsubpp -delete
