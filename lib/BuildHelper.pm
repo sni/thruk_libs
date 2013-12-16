@@ -217,7 +217,7 @@ sub get_all_deps {
 
         # remove all tarballs from cache which no longer exist
         for my $tf (keys %{$data->{'deps'}}) {
-            if(!-e $tf) {
+            if(!-e "src/".$tf) {
                 delete $data->{'deps'}->{$tf};
                 for my $key (keys %{$data->{'files'}}) {
                     delete $data->{'files'}->{$key} if $data->{'files'}->{$key} eq $tf;

@@ -26,7 +26,7 @@ my $orphaned     = BuildHelper::get_orphaned($deps, $files, $verbose);
 
 # remove referenced modules
 for my $p (@packages) {
-    my $meta         = BuildHelper::get_meta($p);
+    my $meta       = BuildHelper::get_meta($p);
     my $rem_deps   = BuildHelper::get_deps_from_meta($meta, 1);
     for my $rem_dep (keys %{$rem_deps}) {
         my $rdep = BuildHelper::module_to_file($rem_dep, $files, $rem_deps->{$rem_dep});
