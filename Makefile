@@ -40,20 +40,16 @@ MODULES = \
           Exporter-5.68.tar.gz \
           ExtUtils-Config-0.007.tar.gz \
           ExtUtils-Constant-0.23.tar.gz \
-          ExtUtils-Depends-0.304.tar.gz \
           ExtUtils-InstallPaths-0.009.tar.gz \
           ExtUtils-Manifest-1.61.tar.gz \
-          ExtUtils-PkgConfig-1.14.tar.gz \
           FCGI-0.74.tar.gz \
           FCGI-ProcManager-0.24.tar.gz \
           FCGI-ProcManager-MaxRequests-0.02.tar.gz \
           File-Compare-1.1001.tar.gz \
-          File-Copy-Recursive-0.38.tar.gz \
           File-Path-2.09.tar.gz \
           File-ShareDir-1.03.tar.gz \
           File-ShareDir-Install-0.04.tar.gz \
           File-Slurp-9999.19.tar.gz \
-          File-Temp-0.22.tar.gz \
           Filesys-Notify-Simple-0.12.tar.gz \
           Filter-1.49.tar.gz \
           GD-2.50.tar.gz \
@@ -62,7 +58,6 @@ MODULES = \
           HTTP-Date-6.02.tar.gz \
           HTTP-Parser-XS-0.16.tar.gz \
           Hash-MultiValue-0.15.tar.gz \
-          Hash-Util-FieldHash-Compat-0.03.tar.gz \
           IO-Compress-2.062.tar.gz \
           IO-String-1.08.tar.gz \
           IO-Zlib-1.10.tar.gz \
@@ -99,7 +94,6 @@ MODULES = \
           Readonly-1.03.tar.gz \
           Safe-Isa-1.000003.tar.gz \
           Scalar-List-Utils-1.31.tar.gz \
-          Set-Infinite-0.65.tar.gz \
           Set-Object-1.31.tar.gz \
           Spreadsheet-ParseExcel-0.59.tar.gz \
           Storable-2.45.tar.gz \
@@ -116,7 +110,6 @@ MODULES = \
           Test-Simple-0.98.tar.gz \
           Text-Abbrev-1.02.tar.gz \
           Text-Balanced-2.02.tar.gz \
-          Text-PDF-0.29.tar.gz \
           Text-ParseWords-3.29.tar.gz \
           Text-SimpleTable-2.03.tar.gz \
           Text-Tabs+Wrap-2013.0523.tar.gz \
@@ -146,8 +139,6 @@ MODULES = \
           Archive-Tar-1.92.tar.gz \
           Bit-Vector-7.3.tar.gz \
           CGI.pm-3.63.tar.gz \
-          Cairo-1.103.tar.gz \
-          Color-Scheme-1.05.tar.gz \
           DBD-mysql-4.023.tar.gz \
           Date-Calc-6.3.tar.gz \
           Date-Calc-XS-6.3.tar.gz \
@@ -158,8 +149,6 @@ MODULES = \
           ExtUtils-Helpers-0.021.tar.gz \
           File-Listing-6.04.tar.gz \
           File-Remove-1.52.tar.gz \
-          File-chdir-0.1008.tar.gz \
-          Font-TTF-1.02.tar.gz \
           HTML-Parser-3.71.tar.gz \
           HTTP-Message-6.06.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \
@@ -169,7 +158,6 @@ MODULES = \
           Math-Complex-1.59.tar.gz \
           Module-Metadata-1.000014.tar.gz \
           Object-Signature-1.07.tar.gz \
-          PDF-Reuse-0.35.tar.gz \
           Pod-Coverage-0.23.tar.gz \
           Template-Timer-1.00.tar.gz \
           Test-Pod-Coverage-1.08.tar.gz \
@@ -178,7 +166,6 @@ MODULES = \
           HTTP-Cookies-6.01.tar.gz \
           HTTP-Daemon-6.01.tar.gz \
           Module-Load-Conditional-0.54.tar.gz \
-          Monitoring-Livestatus-0.74.tar.gz \
           libwww-perl-6.05.tar.gz \
           IPC-Cmd-0.84.tar.gz \
           LWP-Protocol-https-6.04.tar.gz \
@@ -207,7 +194,6 @@ MODULES = \
           CGI-Simple-1.113.tar.gz \
           Class-Accessor-Chained-0.01.tar.gz \
           Class-C3-0.25.tar.gz \
-          Color-Library-0.021.tar.gz \
           Config-Any-0.23.tar.gz \
           Data-OptList-0.108.tar.gz \
           Data-Page-2.02.tar.gz \
@@ -240,7 +226,6 @@ MODULES = \
           Test-Perl-Critic-1.02.tar.gz \
           B-Hooks-EndOfScope-0.12.tar.gz \
           Catalyst-Plugin-CustomErrorMessage-0.06.tar.gz \
-          Check-ISA-0.04.tar.gz \
           Class-C3-Adopt-NEXT-0.13.tar.gz \
           Class-Load-0.20.tar.gz \
           Class-Load-XS-0.06.tar.gz \
@@ -249,34 +234,22 @@ MODULES = \
           Getopt-Long-Descriptive-0.093.tar.gz \
           Log-Dispatch-2.41.tar.gz \
           Moose-2.1005.tar.gz \
-          MooseX-Aliases-0.11.tar.gz \
-          MooseX-AttributeHelpers-0.23.tar.gz \
           MooseX-Param-0.02.tar.gz \
           MooseX-Params-Validate-0.18.tar.gz \
           MooseX-Role-Parameterized-1.00.tar.gz \
           MooseX-SemiAffordanceAccessor-0.09.tar.gz \
           String-RewritePrefix-0.006.tar.gz \
-          Text-Flow-0.01.tar.gz \
           namespace-clean-0.24.tar.gz \
           Data-Visitor-0.30.tar.gz \
           DateTime-1.03.tar.gz \
-          DateTime-Set-0.31.tar.gz \
           Excel-Template-Plus-0.05.tar.gz \
           MongoDB-0.45.tar.gz \
-          MooseX-Clone-0.05.tar.gz \
           MooseX-Emulate-Class-Accessor-Fast-0.00903.tar.gz \
           MooseX-Getopt-0.56.tar.gz \
-          MooseX-Storage-0.39.tar.gz \
           MooseX-Types-0.36.tar.gz \
           MooseX-Types-Path-Class-0.06.tar.gz \
           namespace-autoclean-0.13.tar.gz \
           File-ChangeNotify-0.23.tar.gz \
-          Forest-0.09.tar.gz \
-          Geometry-Primitive-0.22.tar.gz \
-          Graphics-Color-0.29.tar.gz \
-          Graphics-Primitive-0.61.tar.gz \
-          Graphics-Primitive-Driver-Cairo-0.44.tar.gz \
-          Layout-Manager-0.34.tar.gz \
           MooseX-Daemonize-0.18.tar.gz \
           MooseX-MethodAttributes-0.28.tar.gz \
           MooseX-Role-WithOverloading-0.13.tar.gz \
@@ -286,16 +259,13 @@ MODULES = \
           Catalyst-View-JSON-0.33.tar.gz \
           Catalyst-View-TT-0.41.tar.gz \
           CatalystX-LeakChecker-0.06.tar.gz \
-          Chart-Clicker-2.86.tar.gz \
           Catalyst-Action-RenderView-0.16.tar.gz \
-          Catalyst-Plugin-Cache-0.12.tar.gz \
           Catalyst-Plugin-Compress-0.005.tar.gz \
           Catalyst-Plugin-ConfigLoader-0.32.tar.gz \
           Catalyst-Plugin-Redirect-0.02.tar.gz \
           Catalyst-Plugin-Session-0.37.tar.gz \
           Catalyst-Plugin-StackTrace-0.12.tar.gz \
           Catalyst-Plugin-Static-Simple-0.30.tar.gz \
-          Catalyst-View-PDF-Reuse-0.04.tar.gz \
           Catalyst-Devel-1.39.tar.gz \
           Catalyst-Plugin-Authentication-0.10023.tar.gz \
           Catalyst-Plugin-Authorization-Roles-0.09.tar.gz \
