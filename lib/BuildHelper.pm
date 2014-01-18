@@ -439,15 +439,15 @@ sub install_module {
     my $end = time();
     my $duration = $end - $start;
     print "ok (".$duration."s)\n";
-    my $grepv = "grep -v 'Test::' | grep -v 'Linux::Inotify2' | grep -v 'IO::KQueue' | grep -v 'prerequisite Carp' | grep -v ExtUtils::Install";
-    system("grep 'Warning: prerequisite' $LOG         | $grepv"); # or die('dependency error');
-    system("grep 'is not installed' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
-    system("grep 'is installed, but we need version' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
-    system("grep 'is not a known MakeMaker parameter' $LOG | grep INSTALL_BASE | $grepv") or die('build error');
+    #my $grepv = "grep -v 'Test::' | grep -v 'Linux::Inotify2' | grep -v 'IO::KQueue' | grep -v 'prerequisite Carp' | grep -v ExtUtils::Install";
+    #system("grep 'Warning: prerequisite' $LOG         | $grepv"); # or die('dependency error');
+    #system("grep 'is not installed' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
+    #system("grep 'is installed, but we need version' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
+    #system("grep 'is not a known MakeMaker parameter' $LOG | grep INSTALL_BASE | $grepv") or die('build error');
     chdir($cwd);
-    if($duration > 30) {
+    if($duration > 60) {
         chomp(my $pwd = `pwd`);
-        print "installation took to long, see $pwd/$dir/$LOG for details\n";
+        print "installation took too long, see $pwd/$dir/$LOG for details\n";
     } else {
         `rm -rf $dir`;
     }
