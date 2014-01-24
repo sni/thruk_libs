@@ -273,7 +273,7 @@ MODULES = \
           LWP-Protocol-connect-6.06.tar.gz
 
 
-build: fetch
+build:
 	mkdir -p $(P5TMPDIST)/dest
 	mkdir -p $(P5TMPDIST)/src
 	rsync -a src/. $(P5TMPDIST)/src/.
