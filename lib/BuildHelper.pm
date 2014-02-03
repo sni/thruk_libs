@@ -391,7 +391,7 @@ sub install_module {
     `grep $file $TARGET/modlist.txt 2>&1`;
     $installed = 1 if $? == 0;
     if( $installed and $modname ne 'Catalyst::Runtime' ) {
-        print "already installed\n";
+        print "already build\n";
         return 1;
     }
 
@@ -400,7 +400,7 @@ sub install_module {
     my $cwd   = cwd();
     chdir($dir);
     `rm -f $LOG`;
-    print "installing... ";
+    print "building... ";
 
     my $makefile_opts = '';
     if($modname eq 'XML::LibXML') {
