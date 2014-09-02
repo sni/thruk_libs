@@ -108,7 +108,7 @@ MODULES = \
           Task-Weaken-1.04.tar.gz \
           Template-Toolkit-2.25.tar.gz \
           Test-Cmd-1.05.tar.gz \
-          Test-Simple-0.98.tar.gz \
+          Test-Simple-1.001003.tar.gz \
           Text-Abbrev-1.02.tar.gz \
           Text-Balanced-2.02.tar.gz \
           Text-ParseWords-3.29.tar.gz \
