@@ -17,24 +17,34 @@ BEGIN {
 my $verbose = 0;
 GetOptions ('v|verbose' => \$verbose);
 
-#######################################################
-# list of packages to lookup references
+####################################
 my @packages     = glob("../thruk/Makefile.PL");
 
+####################################
+# get module dependencies
 my($deps,$files) = BuildHelper::get_all_deps(1);
 my $orphaned     = BuildHelper::get_orphaned($deps, $files, $verbose);
 
+####################################
 # remove referenced modules
 for my $p (@packages) {
-    my $meta       = BuildHelper::get_meta($p);
-    my $rem_deps   = BuildHelper::get_deps_from_meta($meta, 1);
+    my $meta     = BuildHelper::get_meta($p);
+    my $rem_deps = BuildHelper::get_deps_from_meta($meta, 1);
     for my $rem_dep (keys %{$rem_deps}) {
         my $rdep = BuildHelper::module_to_file($rem_dep, $files, $rem_deps->{$rem_dep});
-        if(!defined $rdep) {
+        if(!$rdep and !BuildHelper::is_core_module($rem_dep)) {
             print "WARNING: ",$rem_dep, " does not resolve to a file\n";
         } else {
-            delete $orphaned->{$rdep};
+            delete $orphaned->{$rdep} if $rdep;
         }
+    }
+}
+
+####################################
+for my $m (keys %{$files}) {
+    #my $dep = BuildHelper::module_to_file($f, $files);
+    if(BuildHelper::is_core_module($m)) {
+        print "WARNING: ",$m, " is a core module and ",$files->{$m}," should be removed\n";
     }
 }
 
@@ -43,3 +53,4 @@ for my $p (@packages) {
 for my $file (keys %{$orphaned}) {
     print $file, " is orphaned and could probably removed\n";
 }
+

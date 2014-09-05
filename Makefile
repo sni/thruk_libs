@@ -6,7 +6,6 @@ endif
 
 MODULES = \
           ExtUtils-MakeMaker-6.72.tar.gz \
-          autodie-2.25.tar.gz \
           Any-Moose-0.21.tar.gz \
           AppConfig-1.66.tar.gz \
           Attribute-Handlers-0.93.tar.gz \
@@ -261,7 +260,6 @@ MODULES = \
           Catalyst-View-TT-0.41.tar.gz \
           CatalystX-LeakChecker-0.06.tar.gz \
           Catalyst-Action-RenderView-0.16.tar.gz \
-          Catalyst-Plugin-Compress-0.005.tar.gz \
           Catalyst-Plugin-ConfigLoader-0.32.tar.gz \
           Catalyst-Plugin-Redirect-0.02.tar.gz \
           Catalyst-Plugin-Session-0.37.tar.gz \

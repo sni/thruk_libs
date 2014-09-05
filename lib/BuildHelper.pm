@@ -5,7 +5,6 @@ use strict;
 use Config;
 use Data::Dumper;
 use Module::CoreList;
-use lib '/omd/versions/default/lib/perl5/lib/perl5';
 use lib '/var/tmp/p5_dist/dest/lib/perl5';
 use Storable qw/lock_store lock_retrieve/;
 use Cwd;
@@ -22,12 +21,11 @@ my $additional_deps = {
 # is this a core module?
 sub is_core_module {
     my($module) = @_;
-    #my @v = split/\./, $Config{'version'};
-    #my $v = $v[0] + $v[1]/1000;
-    # use fixed version: 5.008, otherwise we would to sort modules on the oldes possible host
-    my $v = "5.008";
+    my @v = split/\./, $Config{'version'};
+    my $v = $v[0] + $v[1]/1000;
+    #my $v = "5.020000";
     if(exists $Module::CoreList::version{$v}{$module}) {
-        return $Module::CoreList::version{$v}{$module} || 0;
+        return($Module::CoreList::version{$v}{$module});
     }
     return;
 }
@@ -70,8 +68,8 @@ sub get_deps {
     for my $dep (keys %{$deps}) {
         my $depv = $deps->{$dep};
         my $cv   = is_core_module($dep);
-        if(defined $cv and $depv == 0) {
-            print "   -> $dep ($depv) skipped zero core dependency\n" unless $quiet;
+        if(defined $cv) {
+            print "   -> $dep ($depv) skipped core dependency\n" unless $quiet;
             next;
         }
         print "   -> $dep ($depv)\n" unless $quiet;
@@ -217,11 +215,12 @@ sub get_all_deps {
 
         # remove all tarballs from cache which no longer exist
         for my $tf (keys %{$data->{'deps'}}) {
-            if(!-e "src/".$tf) {
+            if(!-e 'src/'.$tf) {
                 delete $data->{'deps'}->{$tf};
                 for my $key (keys %{$data->{'files'}}) {
                     delete $data->{'files'}->{$key} if $data->{'files'}->{$key} eq $tf;
                 }
+                print " -> cleaned dependecies for: $tf because tarball does not exist anymore\n" unless $quiet;
             }
         }
     }
@@ -299,6 +298,7 @@ sub version_compare {
 sub sort_deps {
     my $deps  = shift;
     my $files = shift;
+    my $already_printed = {};
 
     # 1st clean up and resolve modules to files
     our $modules = {};
@@ -309,23 +309,20 @@ sub sort_deps {
             next if $dep eq 'strict';
             next if $dep eq 'warnings';
             next if $dep eq 'lib';
+            next if $dep eq 'blib';
+            next if $dep eq 'utf8';
             next if $dep eq 'v';
             next if $dep eq 'IPC::Open'; # core module but not recognized
             my $cv = is_core_module($dep);
-            my $dv = $deps->{$file}->{$dep};
-            # next when dependency is a core module and we require version 0
-            next if $dv == 0 and defined $cv;
-            if(defined $cv) {
-                next if version_compare($cv, $dv);
-            }
+            next if $cv;
             my $fdep = module_to_file($dep, $files, $deps->{$file}->{$dep});
             if(defined $fdep) {
                 next if $fdep eq $file;
                 $modules->{$file}->{$fdep} = 1
             } else {
-                if($dep !~ m/^Test::/
-                   and !defined is_core_module($dep)) {
-                    warn("cannot resolve dependency '$dep' to file, referenced by: $file\n");
+                if($dep !~ m/^Test::/ and $dep !~ m/^Devel::/) {
+                    warn("cannot resolve dependency '$dep' to file, referenced by: $file\n") unless $already_printed->{$dep};
+                    $already_printed->{$dep} = 1;
                 }
             }
         }
@@ -391,7 +388,7 @@ sub install_module {
     `grep $file $TARGET/modlist.txt 2>&1`;
     $installed = 1 if $? == 0;
     if( $installed and $modname ne 'Catalyst::Runtime' ) {
-        print "already build\n";
+        print "already installed\n";
         return 1;
     }
 
@@ -400,7 +397,7 @@ sub install_module {
     my $cwd   = cwd();
     chdir($dir);
     `rm -f $LOG`;
-    print "building... ";
+    print "installing... ";
 
     my $makefile_opts = '';
     if($modname eq 'XML::LibXML') {
@@ -411,7 +408,7 @@ sub install_module {
         local $SIG{ALRM} = sub { die "timeout on: $file\n" };
         alarm(120); # single module should not take longer than 1 minute
         if( -f "Build.PL" ) {
-            `$PERL Build.PL >> $LOG 2>&1 && ./Build >> $LOG 2>&1 && ./Build install >> $LOG 2>&1`;
+            `$PERL Build.PL >> $LOG 2>&1 && $PERL ./Build >> $LOG 2>&1 && $PERL ./Build install >> $LOG 2>&1`;
             if($? != 0 ) { die("error: rc $?\n".`cat $LOG`."\n"); }
         } elsif( -f "Makefile.PL" ) {
             `sed -i -e 's/auto_install;//g' Makefile.PL`;
@@ -439,11 +436,11 @@ sub install_module {
     my $end = time();
     my $duration = $end - $start;
     print "ok (".$duration."s)\n";
-    #my $grepv = "grep -v 'Test::' | grep -v 'Linux::Inotify2' | grep -v 'IO::KQueue' | grep -v 'prerequisite Carp' | grep -v ExtUtils::Install";
-    #system("grep 'Warning: prerequisite' $LOG         | $grepv"); # or die('dependency error');
-    #system("grep 'is not installed' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
-    #system("grep 'is installed, but we need version' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
-    #system("grep 'is not a known MakeMaker parameter' $LOG | grep INSTALL_BASE | $grepv") or die('build error');
+    my $grepv = "grep -v 'Test::' | grep -v 'Linux::Inotify2' | grep -v 'IO::KQueue' | grep -v 'prerequisite Carp' | grep -v ExtUtils::Install";
+    system("grep 'Warning: prerequisite' $LOG         | $grepv"); # or die('dependency error');
+    system("grep 'is not installed' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
+    system("grep 'is installed, but we need version' $LOG | grep ' ! ' | $grepv"); # or die('dependency error');
+    system("grep 'is not a known MakeMaker parameter' $LOG | grep INSTALL_BASE | $grepv") or die('build error');
     chdir($cwd);
     if($duration > 60) {
         chomp(my $pwd = `pwd`);
