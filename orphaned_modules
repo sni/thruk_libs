@@ -32,7 +32,8 @@ for my $p (@packages) {
     my $rem_deps = BuildHelper::get_deps_from_meta($meta, 1);
     for my $rem_dep (keys %{$rem_deps}) {
         my $rdep = BuildHelper::module_to_file($rem_dep, $files, $rem_deps->{$rem_dep});
-        if(!$rdep and !BuildHelper::is_core_module($rem_dep)) {
+        my $cv   = BuildHelper::is_core_module($rem_dep, 5.008);
+        if(!$rdep and !BuildHelper::version_compare($cv, $rem_deps->{$rem_dep})) {
             print "WARNING: ",$rem_dep, " does not resolve to a file\n";
         } else {
             delete $orphaned->{$rdep} if $rdep;
@@ -41,10 +42,11 @@ for my $p (@packages) {
 }
 
 ####################################
-for my $m (keys %{$files}) {
-    #my $dep = BuildHelper::module_to_file($f, $files);
-    if(BuildHelper::is_core_module($m)) {
-        print "WARNING: ",$m, " is a core module and ",$files->{$m}," should be removed\n";
+for my $f (keys %{$files}) {
+    my($m,$v) = BuildHelper::file_to_module($files->{$f});
+    my $cv    = BuildHelper::is_core_module($m, 5.008);
+    if($cv and BuildHelper::version_compare($cv, $v)) {
+        print "WARNING: ",$m, " is a core module (".$cv.") and ",$files->{$m}," should be removed\n";
     }
 }
 

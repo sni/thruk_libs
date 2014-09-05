@@ -34,6 +34,7 @@ MODULES = \
           Digest-MD5-2.53.tar.gz \
           Digest-Perl-MD5-1.8.tar.gz \
           Email-Address-1.900.tar.gz \
+          Email-Date-Format-1.004.tar.gz \
           Encode-2.52.tar.gz \
           Encode-Locale-1.03.tar.gz \
           Exception-Class-1.37.tar.gz \
@@ -45,8 +46,8 @@ MODULES = \
           FCGI-0.74.tar.gz \
           FCGI-ProcManager-0.24.tar.gz \
           FCGI-ProcManager-MaxRequests-0.02.tar.gz \
-          File-Compare-1.1001.tar.gz \
           File-Path-2.09.tar.gz \
+          File-Remove-1.52.tar.gz \
           File-ShareDir-1.03.tar.gz \
           File-ShareDir-Install-0.04.tar.gz \
           File-Slurp-9999.19.tar.gz \
@@ -70,27 +71,30 @@ MODULES = \
           Locale-Maketext-Simple-0.21.tar.gz \
           Log-Log4perl-1.42.tar.gz \
           MIME-Base64-3.14.tar.gz \
+          MIME-Lite-3.029.tar.gz \
           MIME-Types-2.02.tar.gz \
-          Module-CoreList-2.97.tar.gz \
+          Math-Complex-1.59.tar.gz \
           Module-Load-0.24.tar.gz \
           Mozilla-CA-20130114.tar.gz \
           NEXT-0.65.tar.gz \
           Net-HTTP-6.06.tar.gz \
           Net-Server-2.007.tar.gz \
           OLE-Storage_Lite-0.19.tar.gz \
+          Object-Signature-1.07.tar.gz \
           PAR-Dist-0.49.tar.gz \
           Package-Constants-0.02.tar.gz \
           Package-Stash-XS-0.28.tar.gz \
           PadWalker-1.96.tar.gz \
           Params-Check-0.38.tar.gz \
           Parse-CPAN-Meta-1.4405.tar.gz \
+          Path-Tiny-0.056.tar.gz \
           PathTools-3.40.tar.gz \
           Perl-OSType-1.003.tar.gz \
           Perl-Tidy-20130806.tar.gz \
           Pod-Escapes-1.04.tar.gz \
           Pod-Parser-1.61.tar.gz \
           Pod-Simple-3.28.tar.gz \
-          Pod-Spell-1.05.tar.gz \
+          Pod-Usage-1.63.tar.gz \
           Readonly-1.03.tar.gz \
           Safe-Isa-1.000003.tar.gz \
           Scalar-List-Utils-1.33.tar.gz \
@@ -107,12 +111,14 @@ MODULES = \
           Task-Weaken-1.04.tar.gz \
           Template-Toolkit-2.25.tar.gz \
           Test-Cmd-1.05.tar.gz \
+          Test-Deep-0.113.tar.gz \
           Test-Simple-1.001003.tar.gz \
           Text-Abbrev-1.02.tar.gz \
           Text-Balanced-2.02.tar.gz \
           Text-ParseWords-3.29.tar.gz \
           Text-SimpleTable-2.03.tar.gz \
           Text-Tabs+Wrap-2013.0523.tar.gz \
+          Thread-Queue-3.02.tar.gz \
           Thread-Semaphore-2.12.tar.gz \
           Tie-RefHash-1.39.tar.gz \
           Tie-ToObject-0.03.tar.gz \
@@ -126,6 +132,7 @@ MODULES = \
           XSLoader-0.16.tar.gz \
           YAML-0.84.tar.gz \
           YAML-Tiny-1.53.tar.gz \
+          autodie-2.25.tar.gz \
           base-2.18.tar.gz \
           boolean-0.30.tar.gz \
           common-sense-3.72.tar.gz \
@@ -135,7 +142,7 @@ MODULES = \
           podlators-2.5.1.tar.gz \
           threads-1.87.tar.gz \
           threads-shared-1.43.tar.gz \
-          version-0.9903.tar.gz \
+          version-0.9909.tar.gz \
           Archive-Tar-1.92.tar.gz \
           Bit-Vector-7.3.tar.gz \
           CGI.pm-3.63.tar.gz \
@@ -144,35 +151,37 @@ MODULES = \
           Date-Calc-XS-6.3.tar.gz \
           Devel-Caller-2.06.tar.gz \
           Devel-Symdump-2.10.tar.gz \
-          Email-Date-Format-1.004.tar.gz \
           Eval-Closure-0.11.tar.gz \
           ExtUtils-Helpers-0.021.tar.gz \
           File-Listing-6.04.tar.gz \
-          File-Remove-1.52.tar.gz \
           HTML-Parser-3.71.tar.gz \
           HTTP-Message-6.06.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \
           HTTP-Request-AsCGI-1.2.tar.gz \
           JSON-XS-2.34.tar.gz \
-          MIME-Lite-3.029.tar.gz \
-          Math-Complex-1.59.tar.gz \
+          Module-CoreList-5.021003.tar.gz \
           Module-Metadata-1.000014.tar.gz \
-          Object-Signature-1.07.tar.gz \
           Pod-Coverage-0.23.tar.gz \
+          Pod-Spell-1.05.tar.gz \
           Template-Timer-1.00.tar.gz \
           Test-Pod-Coverage-1.08.tar.gz \
-          Thread-Queue-3.02.tar.gz \
+          CPAN-Meta-Check-0.009.tar.gz \
           HTML-Lint-2.20.tar.gz \
+          HTTP-Body-1.17.tar.gz \
           HTTP-Cookies-6.01.tar.gz \
           HTTP-Daemon-6.01.tar.gz \
           Module-Load-Conditional-0.54.tar.gz \
+          Plack-1.0028.tar.gz \
+          Plack-Middleware-ReverseProxy-0.15.tar.gz \
           libwww-perl-6.05.tar.gz \
           IPC-Cmd-0.84.tar.gz \
           LWP-Protocol-https-6.04.tar.gz \
+          Plack-Test-ExternalServer-0.01.tar.gz \
           XML-Parser-2.41.tar.gz \
           ExtUtils-CBuilder-0.280205.tar.gz \
           ExtUtils-ParseXS-3.21.tar.gz \
           IO-1.25.tar.gz \
+          LWP-Protocol-connect-6.06.tar.gz \
           List-MoreUtils-0.33.tar.gz \
           Module-Build-0.4007.tar.gz \
           Module-Build-Tiny-0.026.tar.gz \
@@ -184,6 +193,7 @@ MODULES = \
           Path-Class-0.32.tar.gz \
           Socket-2.011.tar.gz \
           Spreadsheet-WriteExcel-2.39.tar.gz \
+          Starman-0.4006.tar.gz \
           Test-Pod-1.48.tar.gz \
           Tie-IxHash-1.23.tar.gz \
           Tree-Simple-1.18.tar.gz \
@@ -203,7 +213,6 @@ MODULES = \
           Dist-CheckConflicts-0.09.tar.gz \
           Excel-Template-0.34.tar.gz \
           File-BOM-0.14.tar.gz \
-          HTTP-Body-1.17.tar.gz \
           MRO-Compat-0.12.tar.gz \
           Module-Implementation-0.07.tar.gz \
           Module-Install-1.06.tar.gz \
@@ -218,10 +227,6 @@ MODULES = \
           Perl-Critic-Dynamic-0.05.tar.gz \
           Perl-Critic-Nits-v1.0.0.tar.gz \
           Perl-Critic-Policy-Dynamic-NoIndirect-0.06.tar.gz \
-          Plack-1.0028.tar.gz \
-          Plack-Middleware-ReverseProxy-0.15.tar.gz \
-          Plack-Test-ExternalServer-0.01.tar.gz \
-          Starman-0.4006.tar.gz \
           Sub-Exporter-0.986.tar.gz \
           Test-Perl-Critic-1.02.tar.gz \
           B-Hooks-EndOfScope-0.12.tar.gz \
@@ -240,6 +245,7 @@ MODULES = \
           MooseX-SemiAffordanceAccessor-0.09.tar.gz \
           String-RewritePrefix-0.006.tar.gz \
           namespace-clean-0.24.tar.gz \
+          Catalyst-DispatchType-Regex-5.90033.tar.gz \
           Data-Visitor-0.30.tar.gz \
           DateTime-1.03.tar.gz \
           Excel-Template-Plus-0.05.tar.gz \
@@ -267,29 +273,32 @@ MODULES = \
           Catalyst-Plugin-Static-Simple-0.30.tar.gz \
           Catalyst-Devel-1.39.tar.gz \
           Catalyst-Plugin-Authentication-0.10023.tar.gz \
-          Catalyst-Plugin-Authorization-Roles-0.09.tar.gz \
-          Pod-Usage-1.63.tar.gz \
-          LWP-Protocol-connect-6.06.tar.gz
+          Catalyst-Plugin-Authorization-Roles-0.09.tar.gz
 
 
 build:
 	mkdir -p $(P5TMPDIST)/dest
 	mkdir -p $(P5TMPDIST)/src
 	rsync -a src/. $(P5TMPDIST)/src/.
-	rsync -a build_module.pl distro lib/BuildHelper.pm lib/Module $(P5TMPDIST)/src/.
+	rsync -a build_module.pl distro lib $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
 	unset LANG; \
 	unset PERL5LIB; \
 	unset PERL_MB_OPT; \
 	unset PERL_LOCAL_LIB_ROOT; \
 	unset PERL_MM_OPT; \
-	cd $(P5TMPDIST)/src && \
-	    PATH=$(P5TMPDIST)/dest/bin:$$PATH \
-	    PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/dest \
-	    PERL_MB_OPT=--install_base=$(P5TMPDIST)/dest \
-	    MODULEBUILDRC=$(P5TMPDIST)/dest/.modulebuildrc \
-	    PERL5LIB=$(P5TMPDIST)/dest/lib/perl5 \
-	    ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
+	export PATH=$(P5TMPDIST)/dest/bin:$$PATH; \
+	    export PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/dest; \
+	    export PERL_MB_OPT=--install_base=$(P5TMPDIST)/dest; \
+	    export MODULEBUILDRC=$(P5TMPDIST)/dest/.modulebuildrc; \
+	    export PERL5LIB=$(P5TMPDIST)/dest/lib/perl5:$(P5TMPDIST)/src/lib; \
+	    cd $(P5TMPDIST)/src && \
+	        FORCE=1 ./build_module.pl -p $(P5TMPDIST)/dest \
+	            parent-*.tar.gz \
+	            version-*.tar.gz \
+	            Module-CoreList-*.tar.gz; \
+	    cd $(P5TMPDIST)/src && \
+	        ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
 	# clean up
 	find $(P5TMPDIST)/dest/lib -name \*.so -exec chmod 644 {} \; -exec strip {} \;
 	find $(P5TMPDIST)/dest/lib -size 0 -delete

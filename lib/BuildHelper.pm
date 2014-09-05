@@ -4,7 +4,6 @@ use warnings;
 use strict;
 use Config;
 use Data::Dumper;
-use Module::CoreList;
 use lib '/var/tmp/p5_dist/dest/lib/perl5';
 use Storable qw/lock_store lock_retrieve/;
 use Cwd;
@@ -20,9 +19,14 @@ my $additional_deps = {
 ####################################
 # is this a core module?
 sub is_core_module {
-    my($module) = @_;
+    my($module, $perl_version) = @_;
+    eval {
+        require Module::CoreList;
+        Module::CoreList->import();
+    };
+    return if $@;
     my @v = split/\./, $Config{'version'};
-    my $v = $v[0] + $v[1]/1000;
+    my $v = $perl_version || $v[0] + $v[1]/1000;
     #my $v = "5.020000";
     if(exists $Module::CoreList::version{$v}{$module}) {
         return($Module::CoreList::version{$v}{$module});
@@ -68,7 +72,7 @@ sub get_deps {
     for my $dep (keys %{$deps}) {
         my $depv = $deps->{$dep};
         my $cv   = is_core_module($dep);
-        if(defined $cv) {
+        if($cv and version_compare($cv, $depv)) {
             print "   -> $dep ($depv) skipped core dependency\n" unless $quiet;
             next;
         }
@@ -313,7 +317,7 @@ sub sort_deps {
             next if $dep eq 'utf8';
             next if $dep eq 'v';
             next if $dep eq 'IPC::Open'; # core module but not recognized
-            my $cv = is_core_module($dep);
+            my $cv = is_core_module($dep, 5.008);
             next if $cv;
             my $fdep = module_to_file($dep, $files, $deps->{$file}->{$dep});
             if(defined $fdep) {
@@ -359,6 +363,7 @@ sub install_module {
     my $verbose = shift || 0;
     my $x       = shift || 1;
     my $max     = shift || 1;
+    my $force   = shift;
     die("error: $file does not exist in ".`pwd`) unless -e $file;
     die("error: module name missing") unless defined $file;
 
@@ -378,10 +383,12 @@ sub install_module {
         }
     }
 
-    my $core   = BuildHelper::is_core_module($modname);
-    if(BuildHelper::version_compare($core, $modvers)) {
-        print "skipped core module $core >= $modvers\n";
-        return 1;
+    unless($force) {
+        my $core   = BuildHelper::is_core_module($modname);
+        if(BuildHelper::version_compare($core, $modvers)) {
+            print "skipped core module $core >= $modvers\n";
+            return 1;
+        }
     }
 
     my $installed = 0;
@@ -584,8 +591,6 @@ sub get_deps_from_meta {
         next if $dep eq 'v';
         if(!$all) {
             next if $dep eq 'IPC::Open'; # core module but not recognized
-            next if $dep =~ m/^Test::/;
-            next if $dep eq 'Test';
         }
         $stripped_deps->{$dep} = $val;
     }
