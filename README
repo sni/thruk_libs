@@ -9,13 +9,13 @@ Installation
 3. cd /tmp/thruk_libs
 4. make
 
-You now have /var/tmp/p5_thruk/dest/ with all required perl modules.
-Move /var/tmp/p5_thruk/dest/lib/perl5 to the desired location and let
+You now have /tmp/thruk_libs/local-lib/dest/ with all required perl modules.
+Move /tmp/thruk_libs/local-lib/dest/lib/perl5 to the desired location and let
 the PERL5LIB environment variable point to it.
 
 ex.:
 
-  PERL5LIB=lib:/var/tmp/p5_thruk/dest/lib/perl5 ./script/thruk
+  PERL5LIB=lib:/tmp/thruk_libs/local-lib/dest/lib/perl5 ./script/thruk
 
 
 Updating
