@@ -5,7 +5,6 @@ P5TMPDIST = $(shell pwd)/local-lib
 endif
 
 MODULES = \
-          ExtUtils-MakeMaker-6.72.tar.gz \
           Any-Moose-0.21.tar.gz \
           AppConfig-1.66.tar.gz \
           Attribute-Handlers-0.93.tar.gz \
@@ -63,9 +62,6 @@ MODULES = \
           IO-String-1.08.tar.gz \
           IO-Zlib-1.10.tar.gz \
           IO-stringy-2.110.tar.gz \
-          JSON-2.59.tar.gz \
-          JSON-Any-1.30.tar.gz \
-          JSON-PP-2.27202.tar.gz \
           LWP-MediaTypes-6.02.tar.gz \
           List-Compare-0.37.tar.gz \
           Locale-Maketext-Simple-0.21.tar.gz \
@@ -135,14 +131,11 @@ MODULES = \
           autodie-2.25.tar.gz \
           base-2.18.tar.gz \
           boolean-0.30.tar.gz \
-          common-sense-3.72.tar.gz \
           indirect-0.30.tar.gz \
           libnet-1.23.tar.gz \
-          parent-0.226.tar.gz \
           podlators-2.5.1.tar.gz \
           threads-1.87.tar.gz \
           threads-shared-1.43.tar.gz \
-          version-0.9909.tar.gz \
           Archive-Tar-1.92.tar.gz \
           Bit-Vector-7.3.tar.gz \
           CGI.pm-3.63.tar.gz \
@@ -158,8 +151,6 @@ MODULES = \
           HTTP-Message-6.06.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \
           HTTP-Request-AsCGI-1.2.tar.gz \
-          JSON-XS-2.34.tar.gz \
-          Module-CoreList-5.021003.tar.gz \
           Module-Metadata-1.000014.tar.gz \
           Pod-Coverage-0.23.tar.gz \
           Pod-Spell-1.05.tar.gz \
@@ -294,9 +285,16 @@ build:
 	    export PERL5LIB=$(P5TMPDIST)/dest/lib/perl5:$(P5TMPDIST)/src/lib; \
 	    cd $(P5TMPDIST)/src && \
 	        FORCE=1 ./build_module.pl -p $(P5TMPDIST)/dest \
+	            ExtUtils-MakeMaker-*.tar.gz \
 	            parent-*.tar.gz \
 	            version-*.tar.gz \
-	            Module-CoreList-*.tar.gz; \
+	            Module-CoreList-*.tar.gz \
+	            common-sense-*.tar.gz \
+	            Types-Serialiser-*.tar.gz \
+	            YAML-LibYAML-*.tar.gz \
+	            JSON-*.tar.gz; \
+	    export PERL_JSON_BACKEND='JSON::XS'; \
+	    export PERL_YAML_BACKEND='YAML::XS'; \
 	    cd $(P5TMPDIST)/src && \
 	        ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
 	# clean up

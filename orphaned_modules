@@ -19,6 +19,8 @@ GetOptions ('v|verbose' => \$verbose);
 
 ####################################
 my @packages     = glob("../thruk/Makefile.PL");
+my $more_modules = {
+};
 
 ####################################
 # get module dependencies
@@ -33,7 +35,7 @@ for my $p (@packages) {
     for my $rem_dep (keys %{$rem_deps}) {
         my $rdep = BuildHelper::module_to_file($rem_dep, $files, $rem_deps->{$rem_dep});
         my $cv   = BuildHelper::is_core_module($rem_dep, 5.008);
-        if(!$rdep and !BuildHelper::version_compare($cv, $rem_deps->{$rem_dep})) {
+        if(!$rdep and !BuildHelper::version_compare($cv, $rem_deps->{$rem_dep}) and $rem_dep !~ m/^(Test|Devel)/mx) {
             print "WARNING: ",$rem_dep, " does not resolve to a file\n";
         } else {
             delete $orphaned->{$rdep} if $rdep;
@@ -53,6 +55,9 @@ for my $f (keys %{$files}) {
 ####################################
 # print result
 for my $file (keys %{$orphaned}) {
-    print $file, " is orphaned and could probably removed\n";
+    my($m,$v) = BuildHelper::file_to_module($file);
+    if(!defined $more_modules->{$m}) {
+        print $file, " is orphaned and could probably removed\n";
+    }
 }
 
