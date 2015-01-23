@@ -244,7 +244,7 @@ sub get_all_deps {
     my($x,$max) = (1, scalar @tarballs);
     for my $tarball (sort @tarballs) {
         if(!defined $deps_cache{$tarball}) {
-            printf("*** (%3s/%s) ", $x, $max) if $max > 1;
+            printf("*** (%3s/%s) ", $x, $max) if($max > 1 and !$quiet);
             get_deps($tarball, undef, $quiet);
         }
         $x++;

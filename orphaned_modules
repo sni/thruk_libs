@@ -20,6 +20,7 @@ GetOptions ('v|verbose' => \$verbose);
 ####################################
 my @packages     = glob("../thruk/Makefile.PL");
 my $more_modules = {
+        'File::Copy::Recursive'         => '0',         # required by Thruks inc::Module::Install
 };
 
 ####################################
