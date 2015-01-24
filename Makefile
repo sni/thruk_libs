@@ -154,6 +154,7 @@ MODULES = \
           Socket-2.016.tar.gz \
           Spreadsheet-WriteExcel-2.40.tar.gz \
           Starman-0.4011.tar.gz \
+          Tie-IxHash-1.23.tar.gz \
           Tree-Simple-1.25.tgz \
           Tree-Simple-VisitorFactory-0.12.tgz \
           UNIVERSAL-isa-1.20140927.tar.gz \
