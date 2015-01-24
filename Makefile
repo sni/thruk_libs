@@ -33,7 +33,7 @@ MODULES = \
           ExtUtils-Config-0.008.tar.gz \
           ExtUtils-Constant-0.23.tar.gz \
           ExtUtils-InstallPaths-0.010.tar.gz \
-          ExtUtils-Manifest-1.70.tar.gz \
+          ExtUtils-Manifest-1.63.tar.gz \
           FCGI-0.77.tar.gz \
           File-Copy-Recursive-0.38.tar.gz \
           File-Path-2.09.tar.gz \
