@@ -15,10 +15,12 @@ MODULES = \
           Digest-MD5-2.54.tar.gz \
           Email-Date-Format-1.005.tar.gz \
           Encode-Locale-1.04.tar.gz \
+          Exporter-5.70.tar.gz \
           ExtUtils-Constant-0.23.tar.gz \
           ExtUtils-Manifest-1.63.tar.gz \
           FCGI-0.77.tar.gz \
           File-Copy-Recursive-0.38.tar.gz \
+          File-Remove-1.52.tar.gz \
           File-ShareDir-Install-0.10.tar.gz \
           File-Slurp-9999.19.tar.gz \
           GD-2.50.tar.gz \
@@ -36,6 +38,7 @@ MODULES = \
           Module-Load-0.32.tar.gz \
           OLE-Storage_Lite-0.19.tar.gz \
           Params-Check-0.38.tar.gz \
+          PathTools-3.47.tar.gz \
           Perl-OSType-1.008.tar.gz \
           Scalar-List-Utils-1.42.tar.gz \
           Stream-Buffered-0.03.tar.gz \
@@ -45,6 +48,7 @@ MODULES = \
           Thread-Queue-3.05.tar.gz \
           Time-HiRes-1.9726.tar.gz \
           Try-Tiny-0.22.tar.gz \
+          YAML-Tiny-1.67.tar.gz \
           threads-2.01.tar.gz \
           Bit-Vector-7.4.tar.gz \
           DBD-mysql-4.031.tar.gz \
@@ -54,7 +58,9 @@ MODULES = \
           File-ShareDir-1.102.tar.gz \
           HTML-Parser-3.71.tar.gz \
           Module-Metadata-1.000027.tar.gz \
+          Module-ScanDeps-1.18.tar.gz \
           URI-1.67.tar.gz \
+          autodie-2.26.tar.gz \
           HTML-Lint-2.22.tar.gz \
           HTTP-Message-6.06.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \
@@ -69,6 +75,7 @@ MODULES = \
           ExtUtils-CBuilder-0.280220.tar.gz \
           ExtUtils-ParseXS-3.24.tar.gz \
           Module-Build-0.4007.tar.gz \
+          Module-Install-1.16.tar.gz \
           Module-Runtime-0.014.tar.gz \
           Parse-RecDescent-1.967009.tar.gz \
           Socket-2.019.tar.gz \
