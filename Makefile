@@ -7,12 +7,10 @@ endif
 MODULES = \
           AppConfig-1.71.tar.gz \
           Carp-Clan-6.04.tar.gz \
-          Class-Accessor-0.34.tar.gz \
           Class-Inspector-1.28.tar.gz \
           Class-Singleton-1.5.tar.gz \
           Compress-Raw-Bzip2-2.068.tar.gz \
           Compress-Raw-Zlib-2.068.tar.gz \
-          Config-General-2.56.tar.gz \
           DBI-1.633.tar.gz \
           Digest-MD5-2.54.tar.gz \
           Email-Date-Format-1.005.tar.gz \
@@ -79,8 +77,6 @@ MODULES = \
           Socket-2.019.tar.gz \
           Spreadsheet-WriteExcel-2.40.tar.gz \
           XML-Parser-2.44.tar.gz \
-          Class-Accessor-Chained-0.01.tar.gz \
-          Data-Page-2.02.tar.gz \
           Date-Manip-6.49.tar.gz \
           Dist-CheckConflicts-0.11.tar.gz \
           Excel-Template-0.34.tar.gz \
