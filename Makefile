@@ -31,7 +31,6 @@ MODULES = \
           IO-String-1.08.tar.gz \
           IO-stringy-2.111.tar.gz \
           LWP-MediaTypes-6.02.tar.gz \
-          List-AllUtils-0.09.tar.gz \
           Locale-Maketext-Simple-0.21.tar.gz \
           Log-Log4perl-1.46.tar.gz \
           MIME-Lite-3.030.tar.gz \
@@ -70,10 +69,12 @@ MODULES = \
           HTTP-Cookies-6.01.tar.gz \
           HTTP-Daemon-6.01.tar.gz \
           IPC-Cmd-0.92.tar.gz \
+          List-MoreUtils-0.410.tar.gz \
           Plack-1.0034.tar.gz \
           libwww-perl-6.13.tar.gz \
           ExtUtils-CBuilder-0.280220.tar.gz \
           ExtUtils-ParseXS-3.24.tar.gz \
+          List-AllUtils-0.09.tar.gz \
           Module-Build-0.4007.tar.gz \
           Module-Install-1.16.tar.gz \
           Module-Runtime-0.014.tar.gz \
