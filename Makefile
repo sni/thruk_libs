@@ -16,6 +16,7 @@ MODULES = \
           Email-Date-Format-1.005.tar.gz \
           Encode-Locale-1.04.tar.gz \
           Exporter-5.70.tar.gz \
+          Exporter-Tiny-0.042.tar.gz \
           ExtUtils-Constant-0.23.tar.gz \
           ExtUtils-Manifest-1.63.tar.gz \
           FCGI-0.77.tar.gz \
