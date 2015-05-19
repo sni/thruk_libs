@@ -30,9 +30,6 @@ if(!defined $ENV{'PERL5LIB'} or $ENV{'PERL5LIB'} eq "") {
     exit 1;
 }
 
-# catalyst needs this on old perl versions
-$ENV{'CATALYST_DEVEL_NO_510_CHECK'} = 1;
-
 my $x = 1;
 my $max = scalar @ARGV;
 for my $mod (@ARGV) {
