@@ -25,7 +25,6 @@ MODULES = \
           File-ShareDir-Install-0.10.tar.gz \
           File-Slurp-9999.19.tar.gz \
           GD-2.50.tar.gz \
-          HTML-Tagset-3.20.tar.gz \
           HTTP-Date-6.02.tar.gz \
           Hash-MultiValue-0.16.tar.gz \
           IO-Compress-2.068.tar.gz \
@@ -56,12 +55,10 @@ MODULES = \
           Date-Calc-XS-6.4.tar.gz \
           File-Listing-6.04.tar.gz \
           File-ShareDir-1.102.tar.gz \
-          HTML-Parser-3.71.tar.gz \
           Module-Metadata-1.000027.tar.gz \
           Module-ScanDeps-1.18.tar.gz \
           URI-1.67.tar.gz \
           autodie-2.26.tar.gz \
-          HTML-Lint-2.22.tar.gz \
           HTTP-Message-6.06.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \
           Module-Load-Conditional-0.64.tar.gz \
@@ -86,6 +83,7 @@ MODULES = \
           Date-Manip-6.49.tar.gz \
           Dist-CheckConflicts-0.11.tar.gz \
           Excel-Template-0.34.tar.gz \
+          HTML-Escape-1.09.tar.gz \
           Module-Implementation-0.09.tar.gz \
           Params-Validate-1.18.tar.gz \
           DateTime-Locale-0.45.tar.gz \
