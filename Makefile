@@ -20,6 +20,7 @@ MODULES = \
           ExtUtils-Constant-0.23.tar.gz \
           ExtUtils-Manifest-1.63.tar.gz \
           FCGI-0.77.tar.gz \
+          FCGI-ProcManager-0.25.tar.gz \
           File-Copy-Recursive-0.38.tar.gz \
           File-Remove-1.52.tar.gz \
           File-ShareDir-Install-0.10.tar.gz \
