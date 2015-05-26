@@ -26,6 +26,7 @@ MODULES = \
           File-ShareDir-Install-0.10.tar.gz \
           File-Slurp-9999.19.tar.gz \
           GD-2.50.tar.gz \
+          HTML-Parser-3.71.tar.gz \
           HTTP-Date-6.02.tar.gz \
           Hash-MultiValue-0.16.tar.gz \
           IO-Compress-2.068.tar.gz \
