@@ -1,0 +1,25 @@
+Source: libthruk
+Section: net
+Priority: extra
+Maintainer: Sven Nierlein <sven.nierlein@consol.de>
+Build-Depends: debhelper (>= 7), chrpath, libgd2-xpm-dev,
+   libmysqlclient-dev | libmysqlclient15-dev,
+   libpng12-dev,
+   libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
+   zlib1g-dev, libmodule-install-perl
+Standards-Version: 3.7.3
+Homepage: http://www.thruk.org
+Bugs: https://github.com/sni/thruk_lib/issues
+Vcs-Git: git://github.com/sni/thruk_lib.git
+
+Package: libthruk
+Architecture: any
+Depends: ${shlibs:Depends}, ${perl:Depends}, ${extra:Depends}
+Replaces: thruk (<< 1.99~2015-06-12)
+Breaks: thruk (<< 1.99~2015-06-12)
+Description: Thruk perl libraries
+ Thruk is a multibackend monitoring webinterface which currently
+ supports Nagios, Icinga and Shinken as backend using the Livestatus
+ API. It is designed to be a 'dropin' replacement and covers almost
+ all of the original features plus adds additional enhancements for
+ large installations.

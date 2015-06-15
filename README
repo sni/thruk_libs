@@ -1,5 +1,7 @@
-Thruk Librarys
-==============
+Thruk Libraries
+===============
+
+This repository contains all required perl modules to run Thruk.
 
 Installation
 ------------
@@ -7,11 +9,11 @@ Installation
 1. cd /tmp
 2. git clone git://github.com/sni/thruk_libs.git
 3. cd /tmp/thruk_libs
-4. make
+4. make [build|rpm|deb]
 
-You now have /tmp/thruk_libs/local-lib/dest/ with all required perl modules.
-Move /tmp/thruk_libs/local-lib/dest/lib/perl5 to the desired location and let
-the PERL5LIB environment variable point to it.
+You now have a `local-lib/dest/` with all required perl modules.
+Move `local-lib/dest/lib/perl5` to the desired location and let
+the PERL5LIB environment variable point to that folder.
 
 ex.:
 

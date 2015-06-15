@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_VERBOSE=1
+DESTDIR=$(CURDIR)/debian/tmp/
+PERLARCH=$(shell perl -e 'use Config; print $$Config{archname}')
+PERLVER=$(shell perl -e 'use Config; print $$Config{version}')
+
+override_dh_auto_configure:
+	dh_auto_configure
+	echo "libthruk: embedded-library usr/lib/thruk/perl5/$(PERLARCH)/auto/Compress/Raw/Zlib/Zlib.so: zlib" >> debian/libthruk.lintian-overrides
+	echo "libthruk: embedded-zlib ./usr/lib/thruk/perl5/$(PERLARCH)/auto/Compress/Raw/Zlib/Zlib.so"        >> debian/libthruk.lintian-overrides
+
+override_dh_gencontrol:
+	dh_gencontrol -- -Vextra:Depends=perlapi-$(PERLVER)
+
+override_dh_auto_test:
+
+%:
+	dh $@

@@ -1,7 +1,16 @@
+NAME    = libthruk
+VERSION = 1.99
+
 ifdef P5DIR
 P5TMPDIST = $(P5DIR)
 else
 P5TMPDIST = $(shell pwd)/local-lib
+endif
+
+ifdef LIBDIR
+    INSTALLTARGET=$(DESTDIR)$(LIBDIR)
+else
+    INSTALLTARGET=$(DESTDIR)/usr/lib/thruk/
 endif
 
 MODULES = \
@@ -139,6 +148,11 @@ build:
 	find $(P5TMPDIST)/dest/lib -name \*.pm -exec chmod 644 {} \;
 	find $(P5TMPDIST)/dest/lib -name \*.pod -exec chmod 644 {} \;
 	find $(P5TMPDIST)/dest/lib -depth -type d -empty -exec rmdir {} \;
+	# Cleanup rpath errors in perl modules
+	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/GD/GD.so                  || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/GD/GD.so
+	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/DBD/mysql/mysql.so        || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/DBD/mysql/mysql.so
+	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/Time/HiRes/HiRes.so       || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/Time/HiRes/HiRes.so
+	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/XML/Parser/Expat/Expat.so || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/XML/Parser/Expat/Expat.so
 	@echo ""
 	@echo "################################################################"
 	@echo ""
@@ -156,6 +170,35 @@ fetch:
 	    test -f src/$$m || ./download_package $$m || exit 1; \
 	done
 
+install:
+	mkdir -p $(INSTALLTARGET)
+	cp -rp $(P5TMPDIST)/dest/lib/perl5 $(INSTALLTARGET)
+
+deb: $(NAME)-$(VERSION).tar.gz
+	tar zxvf $(NAME)-$(VERSION).tar.gz
+	cd $(NAME)-$(VERSION) && /usr/bin/debuild -i -us -uc -b
+	rm -rf $(NAME)-$(VERSION)
+
+rpm: $(NAME)-$(VERSION).tar.gz
+	rpmbuild -ta $(NAME)-$(VERSION).tar.gz
+
+dist: $(NAME)-$(VERSION).tar.gz
+
+$(NAME)-$(VERSION).tar.gz:
+	rm -f $(NAME)-$(VERSION).tar.gz
+	mkdir -p $(NAME)-$(VERSION)
+	cp -rp \
+		src \
+		lib \
+		debian \
+		Makefile \
+		libthruk.spec \
+		distro \
+		build_module.pl \
+		$(NAME)-$(VERSION)/
+	tar cfz $(NAME)-$(VERSION).tar.gz $(NAME)-$(VERSION)
+	rm -rf $(NAME)-$(VERSION)
 
 clean:
 	rm -rf $(P5TMPDIST)
+	rm -f $(NAME)-$(VERSION).tar.gz
