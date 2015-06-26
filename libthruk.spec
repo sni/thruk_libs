@@ -19,6 +19,11 @@ BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: gcc
 BuildRequires: chrpath
+%if %{defined suse_version}
+BuildRequires: libexpat-devel
+%else
+BuildRequires: expat-devel
+%endif
 
 # disable creating useless empty debug packages
 %define debug_package %{nil}
