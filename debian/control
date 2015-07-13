@@ -15,8 +15,8 @@ Vcs-Git: git://github.com/sni/thruk_lib.git
 Package: libthruk
 Architecture: any
 Depends: ${shlibs:Depends}, ${perl:Depends}, ${extra:Depends}
-Replaces: thruk (<< 1.99~2015-06-12)
-Breaks: thruk (<< 1.99~2015-06-12)
+Replaces: thruk (<< 2.00)
+Breaks: thruk (<< 2.00)
 Description: Thruk perl libraries
  Thruk is a multibackend monitoring webinterface which currently
  supports Nagios, Icinga and Shinken as backend using the Livestatus
