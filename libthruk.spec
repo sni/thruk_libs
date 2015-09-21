@@ -24,6 +24,15 @@ BuildRequires: libexpat-devel
 %else
 BuildRequires: expat-devel
 %endif
+%if 0%{?fc22}
+Requires: perl-Module-Load
+Requires: perl-Locale-Maketext-Simple
+Requires: perl-Params-Check
+Requires: perl-PathTools
+Requires: perl-Thread-Queue
+Requires: perl-Time-HiRes
+Requires: perl-IPC-Cmd
+%endif
 
 # disable creating useless empty debug packages
 %define debug_package %{nil}
