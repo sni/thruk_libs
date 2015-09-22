@@ -21,6 +21,12 @@ BuildRequires: gcc
 BuildRequires: chrpath
 %if %{defined suse_version}
 BuildRequires: libexpat-devel
+# sles 12 requires some special libraries
+%if 0%{?suse_version} >= 1315
+BuildRequires: libpng16-devel
+BuildRequires: libtiff-devel
+BuildRequires: libvpx-devel
+%endif
 %else
 BuildRequires: expat-devel
 %endif
