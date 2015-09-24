@@ -19,6 +19,7 @@ BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: gcc
 BuildRequires: chrpath
+Requires: gd
 %if %{defined suse_version}
 BuildRequires: libexpat-devel
 # sles 12 requires some special libraries
@@ -26,6 +27,7 @@ BuildRequires: libexpat-devel
 BuildRequires: libpng16-devel
 BuildRequires: libtiff-devel
 BuildRequires: libvpx-devel
+Requires: libjpeg62
 %endif
 %else
 BuildRequires: expat-devel
