@@ -41,6 +41,9 @@ Requires: perl-Thread-Queue
 Requires: perl-Time-HiRes
 Requires: perl-IPC-Cmd
 %endif
+%if 0%{?el7}
+Requires: perl-Data-Dumper
+%endif
 
 # disable creating useless empty debug packages
 %define debug_package %{nil}
