@@ -32,7 +32,7 @@ Requires: libjpeg62
 %else
 BuildRequires: expat-devel
 %endif
-%if 0%{?fc22}
+%if 0%{?fc22}%{?fc23}
 Requires: perl-Module-Load
 Requires: perl-Locale-Maketext-Simple
 Requires: perl-Params-Check
@@ -40,6 +40,9 @@ Requires: perl-PathTools
 Requires: perl-Thread-Queue
 Requires: perl-Time-HiRes
 Requires: perl-IPC-Cmd
+%endif
+%if 0%{?fc23}
+Requires: perl-Text-Balanced
 %endif
 %if 0%{?el7}
 Requires: perl-Data-Dumper
