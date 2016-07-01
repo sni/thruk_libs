@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Sven Nierlein <sven.nierlein@consol.de>
 Build-Depends: debhelper (>= 7), chrpath, libgd2-xpm-dev,
    libmysqlclient-dev | libmysqlclient15-dev,
-   libpng12-dev,
+   libpng-dev  | libpng12-dev,
    libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
    zlib1g-dev, libmodule-install-perl
 Standards-Version: 3.7.3
