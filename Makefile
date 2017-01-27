@@ -57,7 +57,7 @@ MODULES = \
           Test-Simple-1.001014.tar.gz \
           Thread-Queue-3.05.tar.gz \
           Time-HiRes-1.9726.tar.gz \
-          Try-Tiny-0.22.tar.gz \
+          Try-Tiny-0.28.tar.gz \
           YAML-Tiny-1.67.tar.gz \
           threads-2.01.tar.gz \
           Bit-Vector-7.4.tar.gz \
