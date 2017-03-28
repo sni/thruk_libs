@@ -202,3 +202,15 @@ $(NAME)-$(VERSION).tar.gz:
 clean:
 	rm -rf $(P5TMPDIST)
 	rm -f $(NAME)-$(VERSION).tar.gz
+
+version:
+	[ -e .git ] || { echo "changing versions only works in git clones!"; exit 1; }
+	[ `git status | grep -c 'working directory clean'` -eq 1 ] || { echo "git project is not clean, cannot tag version"; exit 1; }
+	export DEBEMAIL="Thruk Development Team <devel@thruk.org>"; \
+	export DEBFULLNAME="Thruk Development Team"; \
+	newversion=$$(dialog --stdout --inputbox "New Version:" 0 0 "${VERSION}"); \
+    sed "s/^VERSION =.*/VERSION = $$newversion/" -i Makefile; \
+    sed "s/^Version.*/Version: $$newversion/" -i libthruk.spec; \
+	sed -e 's/UNRELEASED/unstable/g' -i debian/changelog; \
+	dch --newversion "$$newversion" --package "libthruk" -D "UNRELEASED" --urgency "low" "new upstream release"; \
+	sed -e 's/unstable/UNRELEASED/g' -i debian/changelog
