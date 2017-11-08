@@ -2,7 +2,8 @@ Source: libthruk
 Section: net
 Priority: extra
 Maintainer: Sven Nierlein <sven.nierlein@consol.de>
-Build-Depends: debhelper (>= 7), chrpath, libgd2-xpm-dev,
+Build-Depends: debhelper (>= 7), chrpath,
+   libgd-dev | libgd2-xpm-dev,
    libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
    libpng-dev  | libpng12-dev,
    libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
