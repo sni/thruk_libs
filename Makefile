@@ -101,6 +101,7 @@ MODULES = \
           DateTime-TimeZone-1.88.tar.gz \
           Log-Dispatch-2.44.tar.gz \
           Clone-0.39.tar.gz \
+          IO-Socket-IP-0.39.tar.gz \
           DateTime-1.18.tar.gz
 
 
