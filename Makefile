@@ -129,8 +129,8 @@ build:
 	            Module-CoreList-*.tar.gz \
 	            common-sense-*.tar.gz \
 	            Types-Serialiser-*.tar.gz \
-	            JSON-*.tar.gz; \
-	    export PERL_JSON_BACKEND='JSON::XS'; \
+	            Cpanel-JSON-*.tar.gz; \
+	    export PERL_JSON_BACKEND='Cpanel::JSON::XS'; \
 	    cd $(P5TMPDIST)/src && \
 	        ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
 	# clean up
