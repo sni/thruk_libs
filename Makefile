@@ -128,6 +128,7 @@ build:
 	            Module-CoreList-*.tar.gz \
 	            common-sense-*.tar.gz \
 	            Types-Serialiser-*.tar.gz \
+	            JSON-*.tar.gz; \
 	            Cpanel-JSON-*.tar.gz; \
 	    export PERL_JSON_BACKEND='Cpanel::JSON::XS'; \
 	    cd $(P5TMPDIST)/src && \
