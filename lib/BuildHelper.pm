@@ -200,7 +200,7 @@ sub translate_module_name {
 sub module_to_file {
     my($mod, $files, $version) = @_;
     $version = 0 unless defined $version;
-    if($version > 0 and defined $files->{$mod}) {
+    if($version && defined $files->{$mod}) {
         my($m,$v) = file_to_module($files->{$mod});
         return $files->{$mod} if version_compare($v, $version);
     }
@@ -432,6 +432,15 @@ sub install_module {
     local $ENV{'PERL5LIB'} = $ENV{'PERL5LIB'}.":." if -e 'private/';
     local $ENV{'PERL5LIB'} = $ENV{'PERL5LIB'}.":." if -e 'inc/';
     local $ENV{'PERL5LIB'} = $ENV{'PERL5LIB'}.":." if -e 'Configure.pm';
+
+    # apply patches
+    my($patchglob) = ($file =~ m/^(.*)\-[0-9_\.]+.tar.gz/gmx);
+    my @patches = glob('../patches/'.$patchglob.'.*.patch');
+    for my $patch (@patches) {
+        print "applying patch ".$patch;
+        `patch -p1 < $patch >> $LOG 2>&1`;
+        if($? != 0 ) { die("error: patch failed - rc $?\n".`cat $LOG`."\n"); }
+    }
 
     eval {
         local $SIG{ALRM} = sub { die "timeout on: $file\n" };

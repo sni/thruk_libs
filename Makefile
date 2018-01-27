@@ -61,7 +61,7 @@ MODULES = \
           YAML-Tiny-1.67.tar.gz \
           threads-2.01.tar.gz \
           Bit-Vector-7.4.tar.gz \
-          DBD-mysql-4.033.tar.gz \
+          DBD-mysql-4.044.tar.gz \
           Date-Calc-6.4.tar.gz \
           Date-Calc-XS-6.4.tar.gz \
           File-Listing-6.04.tar.gz \
@@ -108,7 +108,7 @@ build:
 	mkdir -p $(P5TMPDIST)/dest
 	mkdir -p $(P5TMPDIST)/src
 	rsync -a src/. $(P5TMPDIST)/src/.
-	rsync -a build_module.pl distro lib $(P5TMPDIST)/src/.
+	rsync -a build_module.pl patches distro lib $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
 	unset LANG; \
 	unset PERL5LIB; \
@@ -192,6 +192,7 @@ $(NAME)-$(VERSION).tar.gz:
 	cp -rp \
 		src \
 		lib \
+		patches \
 		debian \
 		Makefile \
 		libthruk.spec \
