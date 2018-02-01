@@ -110,6 +110,7 @@ MODULES = \
           DateTime-Locale-0.45.tar.gz \
           File-ShareDir-1.104.tar.gz \
           List-SomeUtils-0.56.tar.gz \
+          Log-Dispatch-2.44.tar.gz \
           Plack-1.0045.tar.gz \
           List-AllUtils-0.14.tar.gz \
           DateTime-TimeZone-1.88.tar.gz \
