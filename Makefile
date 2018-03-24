@@ -136,6 +136,7 @@ build:
 	    cd $(P5TMPDIST)/src && \
 	        FORCE=1 ./build_module.pl -p $(P5TMPDIST)/dest \
 	            ExtUtils-MakeMaker-*.tar.gz \
+                ExtUtils-ParseXS-*.tar.gz \
 	            parent-*.tar.gz \
 	            version-*.tar.gz \
 	            Module-CoreList-*.tar.gz \
