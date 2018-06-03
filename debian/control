@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 7), chrpath,
    libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
    libpng-dev  | libpng12-dev,
    libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
-   zlib1g-dev, libmodule-install-perl
+   zlib1g-dev
 Standards-Version: 3.7.3
 Homepage: http://www.thruk.org
 Bugs: https://github.com/sni/thruk_lib/issues
