@@ -1,13 +1,13 @@
 Summary: Thruk perl libraries
 Name: libthruk
 Version: 2.20
-Release: 1%{?dist}
+Release: 0
 License: GPLv2
 Group: Applications/System
 URL: http://www.thruk.org/
 Packager: Sven Nierlein <sven.nierlein@consol.de>
 Vendor: Labs Consol
-Source0: http://download.thruk.org/pkg/v%{version}/src/libthruk-%{version}.tar.gz
+Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 BuildRequires: gd-devel > 1.8
 BuildRequires: zlib-devel
@@ -17,41 +17,59 @@ BuildRequires: mysql-devel
 BuildRequires: perl
 BuildRequires: autoconf
 BuildRequires: automake
+BuildRequires: binutils
 BuildRequires: gcc
 BuildRequires: chrpath
+BuildRequires: rsync
 Requires: gd
+
+# sles
 %if %{defined suse_version}
 BuildRequires: libexpat-devel
-# sles 12 requires some special libraries
+BuildRequires: fontconfig-devel
+BuildRequires: xorg-x11-libXpm-devel
+# sles 12
 %if 0%{?suse_version} >= 1315
 BuildRequires: libpng16-devel
 BuildRequires: libtiff-devel
 BuildRequires: libvpx-devel
 Requires: libjpeg62
-%endif
 %else
-BuildRequires: expat-devel
+# sles 11
+BuildRequires: freetype2-devel
 %endif
-%if 0%{?fc22}%{?fc23}%{?fc24}%{?fc25}%{?fc26}
-Requires: perl-Module-Load
-Requires: perl-Locale-Maketext-Simple
-Requires: perl-Params-Check
-Requires: perl-PathTools
-Requires: perl-Thread-Queue
-Requires: perl-Time-HiRes
-Requires: perl-IPC-Cmd
 %endif
-%if 0%{?fc23}%{?fc24}%{?fc25}%{?fc26}
-Requires: perl-Text-Balanced
-%endif
-%if 0%{?fc24}%{?fc25}%{?fc26}
-Requires: perl-Storable
-BuildRequires: perl-Storable
-BuildRequires: perl-libs
+
+# centos
+%if 0%{?el6}
 BuildRequires: perl-devel
 %endif
 %if 0%{?el7}
-Requires: perl-Data-Dumper
+BuildRequires: perl(Locale::Maketext::Simple)
+BuildRequires: perl-devel
+Requires: perl(Data::Dumper)
+%endif
+
+# fedora
+%if 0%{?fc26}
+BuildRequires: expat-devel
+BuildRequires: perl(ExtUtils::MakeMaker)
+BuildRequires: perl(Storable)
+BuildRequires: perl-libs
+Requires: perl(Module::Load)
+Requires: perl(Locale::Maketext::Simple)
+Requires: perl(Params::Check)
+Requires: perl(PathTools)
+Requires: perl(Thread::Queue)
+Requires: perl(Time::HiRes)
+Requires: perl(IPC::Cmd)
+Requires: perl(Text-Balanced)
+Requires: perl-Text-Balanced
+Requires: perl(Storable)
+%endif
+%if 0%{?fc27}
+BuildRequires: perl-devel
+BuildRequires: expat-devel
 %endif
 
 # disable creating useless empty debug packages

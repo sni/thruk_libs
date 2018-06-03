@@ -1,17 +1,18 @@
 Source: libthruk
 Section: net
 Priority: extra
-Maintainer: Sven Nierlein <sven.nierlein@consol.de>
-Build-Depends: debhelper (>= 7), chrpath,
+Maintainer: Thruk Development Team <devel@thruk.org>
+Homepage: http://www.thruk.org
+Bugs: https://github.com/sni/thruk_lib/issues
+Vcs-Browser: https://github.com/sni/thruk_libs
+Vcs-Git: git://github.com/sni/thruk_lib.git
+Standards-Version: 3.7.3
+Build-Depends: debhelper (>= 7), chrpath, rsync,
    libgd-dev | libgd2-xpm-dev,
    libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
    libpng-dev  | libpng12-dev,
    libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
    zlib1g-dev
-Standards-Version: 3.7.3
-Homepage: http://www.thruk.org
-Bugs: https://github.com/sni/thruk_lib/issues
-Vcs-Git: git://github.com/sni/thruk_lib.git
 
 Package: libthruk
 Architecture: any
