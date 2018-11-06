@@ -1,5 +1,5 @@
 NAME    = libthruk
-VERSION = 2.22
+VERSION = 2.24
 
 ifdef P5DIR
 P5TMPDIST = $(P5DIR)
@@ -21,7 +21,6 @@ MODULES = \
           Clone-0.39.tar.gz \
           Compress-Raw-Bzip2-2.074.tar.gz \
           Compress-Raw-Zlib-2.076.tar.gz \
-          Cpanel-JSON-XS-3.0239.tar.gz \
           DBI-1.639.tar.gz \
           Date-Manip-6.60.tar.gz \
           Digest-MD5-2.55.tar.gz \
