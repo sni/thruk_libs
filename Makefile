@@ -221,7 +221,7 @@ clean:
 
 version:
 	[ -e .git ] || { echo "changing versions only works in git clones!"; exit 1; }
-	[ `git status | grep -c 'working directory clean'` -eq 1 ] || { echo "git project is not clean, cannot tag version"; exit 1; }
+	[ `git status | grep -cP 'working (directory|tree) clean'` -eq 1 ] || { echo "git project is not clean, cannot tag version"; exit 1; }
 	export DEBEMAIL="Thruk Development Team <devel@thruk.org>"; \
 	export DEBFULLNAME="Thruk Development Team"; \
 	newversion=$$(dialog --stdout --inputbox "New Version:" 0 0 "${VERSION}"); \
