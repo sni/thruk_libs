@@ -23,7 +23,9 @@ MODULES = \
           Compress-Raw-Zlib-2.076.tar.gz \
           DBI-1.639.tar.gz \
           Date-Manip-6.60.tar.gz \
+          Digest-1.17.tar.gz \
           Digest-MD5-2.55.tar.gz \
+          Digest-SHA-6.02.tar.gz \
           Email-Date-Format-1.005.tar.gz \
           Encode-Locale-1.05.tar.gz \
           Exporter-5.72.tar.gz \
