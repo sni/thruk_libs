@@ -48,6 +48,7 @@ BuildRequires: perl-devel
 BuildRequires: perl(Locale::Maketext::Simple)
 BuildRequires: perl-devel
 Requires: perl(Data::Dumper)
+Requires: perl(Digest)
 %endif
 
 # fedora
@@ -66,6 +67,8 @@ Requires: perl(IPC::Cmd)
 Requires: perl(Text-Balanced)
 Requires: perl-Text-Balanced
 Requires: perl(Storable)
+Requires: perl(Digest)
+Requires: perl(Digest::MD5)
 %endif
 %if 0%{?fc27}
 BuildRequires: perl-devel
