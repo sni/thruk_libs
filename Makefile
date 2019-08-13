@@ -115,7 +115,8 @@ MODULES = \
           Plack-1.0047.tar.gz \
           List-AllUtils-0.14.tar.gz \
           DateTime-TimeZone-1.88.tar.gz \
-          DateTime-1.18.tar.gz
+          DateTime-1.18.tar.gz \
+          Crypt-Rijndael-1.14.tar.gz \
 
 
 build:
