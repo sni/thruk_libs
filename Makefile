@@ -69,7 +69,7 @@ MODULES = \
           YAML-Tiny-1.70.tar.gz \
           threads-2.21.tar.gz \
           Bit-Vector-7.4.tar.gz \
-          DBD-mysql-4.044.tar.gz \
+          DBD-mysql-4.050.tar.gz \
           Date-Calc-6.4.tar.gz \
           Date-Calc-XS-6.4.tar.gz \
           File-Listing-6.04.tar.gz \
