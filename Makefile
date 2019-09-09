@@ -39,7 +39,7 @@ MODULES = \
           FCGI-ProcManager-0.28.tar.gz \
           File-Copy-Recursive-0.40.tar.gz \
           File-Remove-1.57.tar.gz \
-          File-Slurp-9999.19.tar.gz \
+          File-Slurp-9999.27.tar.gz \
           GD-2.50.tar.gz \
           HTML-Parser-3.72.tar.gz \
           HTTP-Date-6.02.tar.gz \
