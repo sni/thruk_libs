@@ -1,6 +1,0 @@
-File::Slurp (9999.19)
- - fix portability warning (https://rt.cpan.org/Public/Bug/Display.html?id=71207)
-
-LWP-Protocol-connect (6.06)
- - Bad arg length for Socket6::unpack_sockaddr_in6, length is 16, should be 28 at .../Socket6.pm line 282.
-   workarounded with https://github.com/benningm/LWP-Protocol-connect/pull/1/files
