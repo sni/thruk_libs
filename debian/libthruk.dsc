@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/sni/thruk_libs
 Vcs-Git: git://github.com/sni/thruk_lib.git
 Build-Depends: debhelper (>= 7), chrpath, rsync,
    libgd-dev | libgd2-xpm-dev,
-   libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
+   libmariadb-dev-compat | libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
    libpng-dev  | libpng12-dev,
    libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
    zlib1g-dev
