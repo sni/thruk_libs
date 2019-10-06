@@ -13,7 +13,11 @@ BuildRequires: gd-devel > 1.8
 BuildRequires: zlib-devel
 BuildRequires: libpng-devel
 BuildRequires: libjpeg-devel
+%if 0%{?el8}
+BuildRequires: mysql-community-devel
+%else
 BuildRequires: mysql-devel
+%endif
 BuildRequires: perl
 BuildRequires: autoconf
 BuildRequires: automake
