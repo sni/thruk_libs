@@ -13,6 +13,7 @@ Build-Depends: debhelper (>= 7), chrpath, rsync,
    libmariadb-dev-compat | libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
    libpng-dev  | libpng12-dev,
    libjpeg-dev | libjpeg62-dev | libjpeg8-dev,
+   libssl-dev,
    zlib1g-dev
 Files:
    00000000000000000000000000000000 0000 libthruk_1.0.0.orig.tar.gz
