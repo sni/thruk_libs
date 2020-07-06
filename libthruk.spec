@@ -50,27 +50,13 @@ BuildRequires: perl-devel
 Requires: perl(Data::Dumper)
 Requires: perl(Digest)
 %endif
+%if 0%{?el8}
+BuildRequires: perl-devel
+BuildRequires: expat-devel
+%endif
 
 # fedora
-%if 0%{?fc26}
-BuildRequires: expat-devel
-BuildRequires: perl(ExtUtils::MakeMaker)
-BuildRequires: perl(Storable)
-BuildRequires: perl-libs
-Requires: perl(Module::Load)
-Requires: perl(Locale::Maketext::Simple)
-Requires: perl(Params::Check)
-Requires: perl(PathTools)
-Requires: perl(Thread::Queue)
-Requires: perl(Time::HiRes)
-Requires: perl(IPC::Cmd)
-Requires: perl(Text-Balanced)
-Requires: perl-Text-Balanced
-Requires: perl(Storable)
-Requires: perl(Digest)
-Requires: perl(Digest::MD5)
-%endif
-%if 0%{?fc27}
+%if 0%{?fedora}
 BuildRequires: perl-devel
 BuildRequires: expat-devel
 %endif
