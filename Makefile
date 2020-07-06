@@ -13,6 +13,17 @@ else
     INSTALLTARGET=$(DESTDIR)/usr/lib/thruk/
 endif
 
+PREMODULES = \
+	      ExtUtils-MakeMaker-*.tar.gz \
+          ExtUtils-ParseXS-*.tar.gz \
+	      parent-*.tar.gz \
+	      version-*.tar.gz \
+	      Module-CoreList-*.tar.gz \
+	      common-sense-*.tar.gz \
+	      Types-Serialiser-*.tar.gz \
+	      JSON-*.tar.gz \
+	      Cpanel-JSON-*.tar.gz \
+
 MODULES = \
           AppConfig-1.71.tar.gz \
           Carp-Clan-6.06.tar.gz \
@@ -126,30 +137,9 @@ build:
 	rsync -a src/. $(P5TMPDIST)/src/.
 	rsync -a build_module.pl patches distro lib $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
-	unset LANG; \
-	unset PERL5LIB; \
-	unset PERL_MB_OPT; \
-	unset PERL_LOCAL_LIB_ROOT; \
-	unset PERL_MM_OPT; \
-	export PATH=$(P5TMPDIST)/dest/bin:$$PATH; \
-	    export PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/dest; \
-	    export PERL_MB_OPT=--install_base=$(P5TMPDIST)/dest; \
-	    export MODULEBUILDRC=$(P5TMPDIST)/dest/.modulebuildrc; \
-	    export PERL5LIB=$(P5TMPDIST)/dest/lib/perl5:$(P5TMPDIST)/src/lib; \
-	    cd $(P5TMPDIST)/src && \
-	        FORCE=1 ./build_module.pl -p $(P5TMPDIST)/dest \
-	            ExtUtils-MakeMaker-*.tar.gz \
-                ExtUtils-ParseXS-*.tar.gz \
-	            parent-*.tar.gz \
-	            version-*.tar.gz \
-	            Module-CoreList-*.tar.gz \
-	            common-sense-*.tar.gz \
-	            Types-Serialiser-*.tar.gz \
-	            JSON-*.tar.gz \
-	            Cpanel-JSON-*.tar.gz; \
-	    export PERL_JSON_BACKEND='Cpanel::JSON::XS'; \
-	    cd $(P5TMPDIST)/src && \
-	        ./build_module.pl -p $(P5TMPDIST)/dest $(MODULES)
+	$(MAKE) BUILD_MODULES="$(PREMODULES)" build_modules
+	export PERL_JSON_BACKEND='Cpanel::JSON::XS'; \
+	  $(MAKE) BUILD_MODULES="$(MODULES)" build_modules
 	# clean up
 	find $(P5TMPDIST)/dest/lib -name \*.so -exec chmod 644 {} \; -exec strip {} \;
 	find $(P5TMPDIST)/dest/lib -size 0 -delete
@@ -180,6 +170,20 @@ build:
 	@echo "  $(P5TMPDIST)"
 	@echo ""
 	@echo "################################################################"
+
+build_modules:
+	unset LANG; \
+	unset PERL5LIB; \
+	unset PERL_MB_OPT; \
+	unset PERL_LOCAL_LIB_ROOT; \
+	unset PERL_MM_OPT; \
+	export PATH=$(P5TMPDIST)/dest/bin:$$PATH; \
+	    export PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/dest; \
+	    export PERL_MB_OPT=--install_base=$(P5TMPDIST)/dest; \
+	    export MODULEBUILDRC=$(P5TMPDIST)/dest/.modulebuildrc; \
+	    export PERL5LIB=$(P5TMPDIST)/dest/lib/perl5:$(P5TMPDIST)/src/lib; \
+	    cd $(P5TMPDIST)/src && \
+	        FORCE=1 ./build_module.pl -p $(P5TMPDIST)/dest $(BUILD_MODULES)
 
 prepack: build
 

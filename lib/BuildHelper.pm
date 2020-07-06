@@ -490,6 +490,9 @@ sub install_module {
     if($modname eq 'JSON::XS') {
         $ENV{'PERL_JSON_BACKEND'} = 'JSON::XS';
     }
+    if($modname eq 'Cpanel::JSON::XS') {
+        $ENV{'PERL_JSON_BACKEND'} = 'Cpanel::JSON::XS';
+    }
 
     return 1;
 }
