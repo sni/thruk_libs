@@ -2,6 +2,7 @@
 # -*- makefile -*-
 
 export DH_VERBOSE=1
+export DEB_BUILD_OPTIONS="parallel=1" # breaks on ubuntu18.04 otherwise
 DESTDIR=$(CURDIR)/debian/tmp/
 PERLARCH=$(shell perl -e 'use Config; print $$Config{archname}')
 PERLVER=$(shell perl -e 'use Config; print $$Config{version}')
