@@ -1,6 +1,6 @@
 Summary: Thruk perl libraries
 Name: libthruk
-Version: 2.34
+Version: 2.36
 Release: 0
 License: GPL-2.0-or-later
 Group: Applications/System
