@@ -1,6 +1,6 @@
 Source: libthruk
 Section: net
-Priority: extra
+Priority: optional
 Maintainer: Thruk Development Team <devel@thruk.org>
 Homepage: http://www.thruk.org
 Bugs: https://github.com/sni/thruk_lib/issues
