@@ -32,8 +32,10 @@ MODULES = \
           Clone-0.39.tar.gz \
           Compress-Raw-Bzip2-2.074.tar.gz \
           Compress-Raw-Zlib-2.076.tar.gz \
+          Crypt-Rijndael-1.14.tar.gz \
           DBI-1.639.tar.gz \
           Date-Manip-6.60.tar.gz \
+          Devel-CheckLib-1.13.tar.gz \
           Digest-1.17.tar.gz \
           Digest-MD5-2.55.tar.gz \
           Digest-SHA-6.02.tar.gz \
@@ -80,7 +82,6 @@ MODULES = \
           YAML-Tiny-1.70.tar.gz \
           threads-2.21.tar.gz \
           Bit-Vector-7.4.tar.gz \
-          Devel-CheckLib-1.13.tar.gz \
           DBD-mysql-4.050.tar.gz \
           Date-Calc-6.4.tar.gz \
           Date-Calc-XS-6.4.tar.gz \
@@ -107,6 +108,7 @@ MODULES = \
           Parse-RecDescent-1.967015.tar.gz \
           Socket-2.027.tar.gz \
           Spreadsheet-WriteExcel-2.40.tar.gz \
+          Tie-IxHash-1.23.tar.gz \
           WWW-Form-UrlEncoded-0.24.tar.gz \
           XML-Parser-2.44.tar.gz \
           Cookie-Baker-0.08.tar.gz \
@@ -127,8 +129,7 @@ MODULES = \
           Plack-1.0047.tar.gz \
           List-AllUtils-0.14.tar.gz \
           DateTime-TimeZone-1.88.tar.gz \
-          DateTime-1.18.tar.gz \
-          Crypt-Rijndael-1.14.tar.gz \
+          DateTime-1.18.tar.gz
 
 
 build:
