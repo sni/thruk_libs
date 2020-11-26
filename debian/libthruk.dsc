@@ -9,6 +9,7 @@ Bugs: https://github.com/sni/thruk_lib/issues
 Vcs-Browser: https://github.com/sni/thruk_libs
 Vcs-Git: git://github.com/sni/thruk_lib.git
 Build-Depends: debhelper (>= 7), chrpath, rsync,
+   perl,
    libgd-dev | libgd2-xpm-dev,
    libmariadb-dev-compat | libmysqlclient-dev | libmysqlclient15-dev | libmariadbclient-dev-compat | libmariadbclient-dev,
    libpng-dev  | libpng12-dev,

@@ -1,27 +1,47 @@
 #!/bin/bash
 
+GREPV() {
+    cat /dev/stdin \
+        | grep -v 'echo ' \
+        | grep -v 'cd ' \
+        | grep -v 'rm ' \
+        | grep -v '^rm$' \
+        | grep -v '^tar$' \
+        | grep -v '^else' \
+        | grep -v '^endif' \
+        | grep -v 'NAME' \
+        | grep -v 'rpm:' \
+        | grep -v 'deb:' \
+        | grep -v 'dist:' \
+        | grep -v 'rpmbuild' \
+        | grep -v '^\s*$' \
+        | grep -v 'tar ' \
+        | sort
+}
+
 echo "checking for duplicate entries..."
-sort Makefile | uniq -d | grep -v '^\s*$' | grep -v 'echo' | grep -v ' cd '
+sort Makefile | GREPV | uniq -d
 
 echo "checking src dir..."
-for file in $(ls -1 src/ | sed 's/\-[0-9\-\.]*\.tar\.gz//g' | sort | uniq -d); do
+for file in $(ls -1 src/ | sed 's/\-[0-9\-\.]*\.tar\.gz//g' | GREPV | uniq -d); do
     echo "$file is listed twice in src/"
 done
 
 echo "checking for duplicate files..."
-for file in $(grep 'tar.gz' Makefile | awk '{ print $1 }' | sed 's/\-[0-9\-\.]*\.tar\.gz//g' | sort | uniq -d); do
+for file in $(grep 'tar.gz' Makefile | awk '{ print $1 }' | sed 's/\-[0-9\-\.]*\.tar\.gz//g' | GREPV | uniq -d); do
     echo "$file is listed twice in Makefile"
 done
 
 echo "checking for unused files..."
-for file in $(cd src && ls -1 *.gz *.tgz *.zip 2>/dev/null | grep -v JSON | grep -v common-sense | grep -v ExtUtils-MakeMaker | grep -v Module-CoreList- | grep -v Types-Serialiser- | grep -v parent- | grep -v version-); do
-    if [ $(grep -c "$file" Makefile) = 0 ]; then
+PREREQS=$(cd src && ls -1 $(grep \.gz ../Makefile  | grep '*' | awk '{print $1}'))
+for file in $(cd src && ls -1); do
+    if [ $(grep -c "$file" Makefile) = 0 ] && [ $(echo "$PREREQS" | grep -c $file) = 0 ]; then
         echo "$file is not used anymore"
     fi
 done
 
 echo "checking for missing files..."
-for file in $(grep 'tar.gz' Makefile | awk '{ print $1 }' | tr -d ';'); do
+for file in $(grep 'tar.gz' Makefile | awk '{ print $1 }' | tr -d ';' | GREPV); do
     ls src/$file >/dev/null 2>&1
     if [ $? -ne 0 ]; then
         echo "$file is missing but used in Makefile"
@@ -29,4 +49,4 @@ for file in $(grep 'tar.gz' Makefile | awk '{ print $1 }' | tr -d ';'); do
 done
 
 echo "checking orphaned files..."
-./orphaned_modules ../thruk/Makefile.PL
+./orphaned_modules
