@@ -17,6 +17,7 @@ PREMODULES = \
           JSON-4.*.tar.gz \
           JSON-PP-*.tar.gz \
           CPAN-Meta-*.tar.gz \
+          IPC-Cmd-*.tar.gz \
           ExtUtils-*.tar.gz \
           Perl-OSType-*.tar.gz \
           Module-Metadata-*.tar.gz \
