@@ -18,6 +18,7 @@ PREMODULES = \
           JSON-PP-*.tar.gz \
           CPAN-Meta-*.tar.gz \
           IPC-Cmd-*.tar.gz \
+          Locale-Maketext-Simple-*.tar.gz \
           Params-Check-*.tar.gz \
           ExtUtils-*.tar.gz \
           Perl-OSType-*.tar.gz \
