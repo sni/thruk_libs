@@ -27,6 +27,9 @@ PREMODULES = \
           version-0.9928.tar.gz \
           Module-Build-*.tar.gz \
           Module-CoreList-*.tar.gz \
+          File-Remove-*.tar.gz \
+          YAML-Tiny-*.tar.gz \
+          Module-Install-*.tar.gz \
 
 MODULES = \
           AppConfig-1.71.tar.gz \
