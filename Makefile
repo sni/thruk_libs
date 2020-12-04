@@ -30,6 +30,8 @@ PREMODULES = \
           File-Remove-*.tar.gz \
           YAML-Tiny-*.tar.gz \
           Module-Install-*.tar.gz \
+          Devel-CheckLib-*.tar.gz \
+          File-ShareDir-Install-*.tar.gz \
 
 MODULES = \
           AppConfig-1.71.tar.gz \
@@ -42,7 +44,6 @@ MODULES = \
           Crypt-Rijndael-1.14.tar.gz \
           DBI-1.639.tar.gz \
           Date-Manip-6.60.tar.gz \
-          Devel-CheckLib-1.13.tar.gz \
           Digest-SHA-6.02.tar.gz \
           Email-Date-Format-1.005.tar.gz \
           Encode-Locale-1.05.tar.gz \
@@ -77,7 +78,6 @@ MODULES = \
           DBD-mysql-4.050.tar.gz \
           Date-Calc-6.4.tar.gz \
           Date-Calc-XS-6.4.tar.gz \
-          File-ShareDir-Install-0.11.tar.gz \
           HTML-Parser-3.72.tar.gz \
           HTTP-Headers-Fast-0.21.tar.gz \
           URI-1.73.tar.gz \
