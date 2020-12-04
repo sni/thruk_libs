@@ -162,6 +162,10 @@ install:
 	mkdir -p $(INSTALLTARGET)
 	cp -rp $(P5TMPDIST)/dest/lib/perl5 $(INSTALLTARGET)
 
+installbuilddeps:
+	mkdir -p $(INSTALLTARGET)
+	cp -rp $(P5TMPDIST)/bootstrap/lib/perl5 $(INSTALLTARGET)
+
 deb: $(NAME)-$(VERSION).tar.gz
 	tar zxvf $(NAME)-$(VERSION).tar.gz
 	cd $(NAME)-$(VERSION) && /usr/bin/debuild -i -us -uc -b
