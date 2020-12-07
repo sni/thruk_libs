@@ -117,7 +117,6 @@ build:
 	find $(P5TMPDIST)/dest/lib -name mk-ca-bundle.pl -delete
 	find $(P5TMPDIST)/dest/lib -name benchmark.pl -delete
 	find $(P5TMPDIST)/dest/lib -name .packlist -delete
-	find $(P5TMPDIST)/dest/lib -type f -name xsubpp -delete
 	find $(P5TMPDIST)/dest/lib -type f -name ttfmod.pl -delete
 	find $(P5TMPDIST)/dest/lib -type f -name changes -delete
 	find $(P5TMPDIST)/dest/lib -type f -name perllocal.pod -delete
@@ -166,6 +165,8 @@ install:
 	cp -rp $(P5TMPDIST)/dest/lib/perl5 $(INSTALLTARGET)
 
 installbuilddeps:
+	find $(P5TMPDIST)/bootstrap/lib -name \*.so -exec chmod 644 {} \; -exec strip {} \;
+	find $(P5TMPDIST)/bootstrap/lib -type f -name xsubpp -delete
 	mkdir -p $(INSTALLTARGET)
 	cp -rp $(P5TMPDIST)/bootstrap/lib/perl5 $(INSTALLTARGET)
 
