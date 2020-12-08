@@ -1,5 +1,5 @@
 NAME    = libthruk
-VERSION = 2.38
+VERSION = 2.40
 
 ifdef P5DIR
 P5TMPDIST = $(P5DIR)
