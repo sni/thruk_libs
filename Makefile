@@ -81,7 +81,7 @@ MODULES = \
           HTML-Parser-3.72.tar.gz \
           HTTP-Headers-Fast-0.21.tar.gz \
           URI-1.73.tar.gz \
-          Cookie-Baker-0.08.tar.gz \
+          Cookie-Baker-0.11.tar.gz \
           File-ShareDir-1.104.tar.gz \
           HTTP-Message-6.14.tar.gz \
           HTTP-Negotiate-6.01.tar.gz \

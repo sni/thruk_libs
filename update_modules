@@ -30,14 +30,14 @@ for my $file (@modules) {
         }
     }
 
-    my $skip = BuildHelper::skip_update($mod);
+    my($modname,$modversion) = BuildHelper::file_to_module($file);
+
+    my $skip = BuildHelper::skip_update($modname);
     if($skip) {
         print "skipped, ", $skip, "\n";
         next;
     }
 
-
-    my($modname,$modversion) = BuildHelper::file_to_module($file);
     my $urlpath = BuildHelper::get_url_for_module($modname);
     my $tarball = $urlpath;
     $tarball =~ s/^.*\///g;
