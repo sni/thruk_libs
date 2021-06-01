@@ -71,6 +71,8 @@ MODULES = \
           Template-Toolkit-2.27.tar.gz \
           Test-Cmd-1.09.tar.gz \
           Test-Simple-1.302183.tar.gz \
+          Thread-Queue-3.13.tar.gz \
+          Thread-Semaphore-2.13.tar.gz \
           Tie-IxHash-1.23.tar.gz \
           Try-Tiny-0.30.tar.gz \
           parent-0.236.tar.gz \
