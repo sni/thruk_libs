@@ -43,6 +43,7 @@ BuildRequires: freetype2-devel
 # centos
 %if 0%{?el6}
 BuildRequires: perl-devel
+BuildRequires: expat-devel
 %endif
 %if 0%{?el7}
 BuildRequires: perl(Locale::Maketext::Simple)
