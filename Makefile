@@ -48,6 +48,7 @@ MODULES = \
           Email-Date-Format-1.005.tar.gz \
           Encode-Locale-1.05.tar.gz \
           FCGI-0.78.tar.gz \
+          FCGI-ProcManager-0.28.tar.gz \
           File-Slurp-9999.27.tar.gz \
           GD-2.50.tar.gz \
           HTML-Tagset-3.20.tar.gz \
