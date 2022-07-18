@@ -40,7 +40,7 @@ MODULES = \
           Clone-0.39.tar.gz \
           Compress-Raw-Bzip2-2.101.tar.gz \
           Compress-Raw-Zlib-2.101.tar.gz \
-          Cpanel-JSON-XS-4.07.tar.gz \
+          Cpanel-JSON-XS-4.30.tar.gz \
           Crypt-Rijndael-1.14.tar.gz \
           DBI-1.639.tar.gz \
           Date-Manip-6.60.tar.gz \
