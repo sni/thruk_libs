@@ -55,6 +55,10 @@ Requires: perl(Digest)
 BuildRequires: perl-devel
 BuildRequires: expat-devel
 %endif
+%if 0%{?el9}
+BuildRequires: perl-devel
+BuildRequires: expat-devel
+%endif
 
 # fedora
 %if 0%{?fedora}
