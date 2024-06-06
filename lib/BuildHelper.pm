@@ -432,8 +432,8 @@ sub install_module {
     }
 
     eval {
-        local $SIG{ALRM} = sub { die "timeout on: $file\n" };
-        alarm(120); # single module should not take longer than 1 minute
+        local $SIG{ALRM} = sub { die "timeout on: $file\n".`cat $LOG` };
+        alarm(600); # single module should not take longer than 10 minutes
         if( -f "Build.PL" ) {
             `$PERL Build.PL >> $LOG 2>&1 && $PERL ./Build >> $LOG 2>&1 && $PERL ./Build install >> $LOG 2>&1`;
             if($? != 0 ) { die("error: rc $?\n".`cat $LOG`."\n"); }
@@ -452,6 +452,8 @@ sub install_module {
         }
         `grep '^==> Auto-install the' $LOG >/dev/null 2>&1 | grep -v optional`;
         if($? == 0 ) { die("dependency error: rc $?\n".`cat $LOG`."\n"); }
+        `grep 'Your perl and your Config.pm seem to have different ideas' $LOG >/dev/null 2>&1`;
+        if($? == 0 ) { die("module install error: rc $?\n".`cat $LOG`."\n"); }
         alarm(0);
     };
     if($@) {
@@ -638,7 +640,7 @@ sub _unpack {
     if($file =~ m/\.zip$/gmx) {
         cmd("unzip $file");
     } else {
-        cmd("tar zxf $file");
+        cmd("tar -ozxf $file");
     }
     my $dir = $file;
     $dir =~  s/(\.tar\.gz|\.tgz|\.zip)//g;
