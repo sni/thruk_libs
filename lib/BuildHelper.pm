@@ -316,6 +316,7 @@ sub sort_deps {
             next if $dep eq 'blib';
             next if $dep eq 'utf8';
             next if $dep eq 'v';
+            next if $dep eq 'IPC::Open'; # core module but not recognized
             my $cv = is_core_module($dep, $minimal_perl_version);
             next if $cv;
             my $fdep = module_to_file($dep, $files, $combined_deps{$dep});
@@ -624,6 +625,7 @@ sub get_deps_from_meta {
         next if $dep eq 'v';
         next if defined $skip_missing->{$dep};
         if(!$type || $type eq 'runtime') {
+            next if $dep eq 'IPC::Open'; # core module but not recognized
             next if $dep =~ m/^Test::/;
             next if $dep eq 'Test';
             next if $dep =~ m/^Devel::/;
