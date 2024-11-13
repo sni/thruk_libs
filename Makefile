@@ -78,7 +78,7 @@ MODULES = \
           Try-Tiny-0.30.tar.gz \
           parent-0.236.tar.gz \
           Bit-Vector-7.4.tar.gz \
-          DBD-mysql-4.050.tar.gz \
+          DBD-mysql-5.010.tar.gz \
           Date-Calc-6.4.tar.gz \
           Date-Calc-XS-6.4.tar.gz \
           HTML-Parser-3.72.tar.gz \
