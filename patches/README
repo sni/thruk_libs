@@ -1,7 +1,8 @@
 # Patches
 
-## bit-vector-c23-fix.patch
+## toolbox.patch
 
-fixes building Bit::Vector on fedora 42
+- fixes building Bit::Vector on fedora 42
+  - https://rt.cpan.org/Public/Bug/Display.html?id=165142
 
-- https://rt.cpan.org/Public/Bug/Display.html?id=165142
+- fixes building Date::Calc::XS on fedora 42
