@@ -1,0 +1,7 @@
+# Patches
+
+## bit-vector-c23-fix.patch
+
+fixes building Bit::Vector on fedora 42
+
+- https://rt.cpan.org/Public/Bug/Display.html?id=165142
