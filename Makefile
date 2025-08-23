@@ -1,5 +1,5 @@
 NAME    = libthruk
-VERSION = 3.20
+VERSION = 3.24
 
 ifdef P5DIR
 P5TMPDIST = $(P5DIR)
@@ -13,92 +13,16 @@ else
     INSTALLTARGET=$(DESTDIR)/usr/lib/thruk/
 endif
 
-PREMODULES = \
-          JSON-4.*.tar.gz \
-          JSON-PP-*.tar.gz \
-          CPAN-Meta-*.tar.gz \
-          Module-Load-Conditional-*.tar.gz \
-          IPC-Cmd-*.tar.gz \
-          Locale-Maketext-Simple-*.tar.gz \
-          Params-Check-*.tar.gz \
-          ExtUtils-*.tar.gz \
-          Perl-OSType-*.tar.gz \
-          Module-Metadata-*.tar.gz \
-          version-0.9933.tar.gz \
-          Module-Build-*.tar.gz \
-          Module-CoreList-*.tar.gz \
-          File-Remove-*.tar.gz \
-          YAML-Tiny-*.tar.gz \
-          Module-Install-*.tar.gz \
-          Devel-CheckLib-*.tar.gz \
-          File-ShareDir-Install-*.tar.gz \
-
 MODULES = \
-          AppConfig-1.71.tar.gz \
-          Carp-Clan-6.06.tar.gz \
-          Class-Inspector-1.32.tar.gz \
-          Clone-0.39.tar.gz \
-          Compress-Raw-Bzip2-2.101.tar.gz \
-          Compress-Raw-Zlib-2.101.tar.gz \
-          Cpanel-JSON-XS-4.30.tar.gz \
-          Crypt-Rijndael-1.14.tar.gz \
-          DBI-1.639.tar.gz \
-          Date-Manip-6.60.tar.gz \
-          Digest-SHA-6.02.tar.gz \
-          Email-Date-Format-1.005.tar.gz \
-          Encode-Locale-1.05.tar.gz \
-          FCGI-0.78.tar.gz \
-          FCGI-ProcManager-0.28.tar.gz \
-          File-Slurp-9999.27.tar.gz \
-          GD-2.50.tar.gz \
-          HTML-Tagset-3.20.tar.gz \
-          HTTP-Date-6.02.tar.gz \
-          HTTP-MultiPartParser-0.02.tar.gz \
-          Hash-MultiValue-0.16.tar.gz \
-          IO-Compress-2.074.tar.gz \
-          IO-Socket-IP-0.39.tar.gz \
-          IO-String-1.08.tar.gz \
-          IO-stringy-2.111.tar.gz \
-          JSON-MaybeXS-1.003010.tar.gz \
-          LWP-MediaTypes-6.02.tar.gz \
-          Log-Log4perl-1.49.tar.gz \
-          MIME-Lite-3.030.tar.gz \
-          Module-Load-0.32.tar.gz \
           OLE-Storage_Lite-0.19.tar.gz \
           Parse-RecDescent-1.967015.tar.gz \
-          Socket-2.027.tar.gz \
           Spreadsheet-WriteExcel-2.40.tar.gz \
-          Stream-Buffered-0.03.tar.gz \
-          Template-Toolkit-2.27.tar.gz \
-          Test-Cmd-1.09.tar.gz \
-          Test-Simple-1.302183.tar.gz \
-          Thread-Queue-3.13.tar.gz \
-          Thread-Semaphore-2.13.tar.gz \
-          Tie-IxHash-1.23.tar.gz \
-          Try-Tiny-0.30.tar.gz \
-          parent-0.236.tar.gz \
-          Bit-Vector-7.4.tar.gz \
-          DBD-mysql-4.052.tar.gz \
-          Date-Calc-6.4.tar.gz \
-          Date-Calc-XS-6.4.tar.gz \
-          HTML-Parser-3.72.tar.gz \
-          HTTP-Headers-Fast-0.21.tar.gz \
-          URI-1.73.tar.gz \
-          Cookie-Baker-0.11.tar.gz \
-          File-ShareDir-1.104.tar.gz \
-          HTTP-Message-6.14.tar.gz \
-          HTTP-Negotiate-6.01.tar.gz \
-          Net-HTTP-6.17.tar.gz \
-          WWW-Form-UrlEncoded-0.24.tar.gz \
-          HTML-Escape-1.10.tar.gz \
-          HTTP-Cookies-6.04.tar.gz \
-          HTTP-Entity-Parser-0.20.tar.gz \
-          Plack-1.0047.tar.gz \
-          libwww-perl-6.31.tar.gz \
-          LWP-Protocol-https-6.09.tar.gz \
-          XML-Parser-2.44.tar.gz \
           Excel-Template-0.34.tar.gz \
-          LWP-Protocol-connect-6.09.tar.gz
+          LWP-Protocol-connect-6.09.tar.gz \
+          ExtUtils-Manifest-1.63.tar.gz \
+          HTML-Escape-1.10.tar.gz \
+          Date-Calc-XS-6.4.tar.gz \
+          Clone-0.39.tar.gz \
 
 
 build:
@@ -108,7 +32,6 @@ build:
 	rsync -a src/. $(P5TMPDIST)/src/.
 	rsync -a build_module.pl patches lib $(P5TMPDIST)/src/.
 	echo "install --install_base $(P5TMPDIST)/bootstrap" > $(P5TMPDIST)/bootstrap/.modulebuildrc
-	$(MAKE) BUILD_MODULES="$(PREMODULES)" P5DESTDIR="bootstrap" build_modules
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
 	$(MAKE) BUILD_MODULES="$(MODULES)" P5DESTDIR="dest" build_modules
 	# clean up
@@ -127,11 +50,6 @@ build:
 	find $(P5TMPDIST)/dest/lib -name \*.pm -exec chmod 644 {} \;
 	find $(P5TMPDIST)/dest/lib -name \*.pod -exec chmod 644 {} \;
 	find $(P5TMPDIST)/dest/lib -depth -type d -empty -exec rmdir {} \;
-	# Cleanup rpath errors in perl modules
-	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/GD/GD.so                  || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/GD/GD.so
-	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/DBD/mysql/mysql.so        || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/DBD/mysql/mysql.so
-	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/Time/HiRes/HiRes.so       || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/Time/HiRes/HiRes.so
-	! test -f $(P5TMPDIST)/dest/lib/perl5/*/auto/XML/Parser/Expat/Expat.so || chrpath --delete $(P5TMPDIST)/dest/lib/perl5/*/auto/XML/Parser/Expat/Expat.so
 	@echo ""
 	@echo "################################################################"
 	@echo ""
