@@ -91,9 +91,6 @@ large installations.
 %install
 %{__rm} -rf %{buildroot}
 %{__make} install DESTDIR="%{buildroot}" LIBDIR="%{_libdir}/thruk/"
-%if %{defined suse_version}
-%{__make} installbuilddeps DESTDIR="%{buildroot}" LIBDIR="%{_libdir}/thruk/"
-%endif
 
 %clean
 %{__rm} -rf %{buildroot}

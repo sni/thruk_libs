@@ -27,11 +27,9 @@ MODULES = \
 
 build:
 	mkdir -p $(P5TMPDIST)/dest
-	mkdir -p $(P5TMPDIST)/bootstrap
 	mkdir -p $(P5TMPDIST)/src
 	rsync -a src/. $(P5TMPDIST)/src/.
 	rsync -a build_module.pl patches lib $(P5TMPDIST)/src/.
-	echo "install --install_base $(P5TMPDIST)/bootstrap" > $(P5TMPDIST)/bootstrap/.modulebuildrc
 	echo "install --install_base $(P5TMPDIST)/dest" > $(P5TMPDIST)/dest/.modulebuildrc
 	$(MAKE) BUILD_MODULES="$(MODULES)" P5DESTDIR="dest" build_modules
 	# clean up
@@ -69,7 +67,7 @@ build_modules:
 	    export PERL_MM_OPT=INSTALL_BASE=$(P5TMPDIST)/$(P5DESTDIR); \
 	    export PERL_MB_OPT=--install_base=$(P5TMPDIST)/$(P5DESTDIR); \
 	    export MODULEBUILDRC=$(P5TMPDIST)/$(P5DESTDIR)/.modulebuildrc; \
-	    export PERL5LIB=$(P5TMPDIST)/dest/lib/perl5:$(P5TMPDIST)/src/lib:$(P5TMPDIST)/bootstrap/lib/perl5; \
+	    export PERL5LIB=$(P5TMPDIST)/dest/lib/perl5:$(P5TMPDIST)/src/lib; \
 	    cd $(P5TMPDIST)/src && \
 	        FORCE=1 ./build_module.pl -p $(P5TMPDIST)/$(P5DESTDIR) $(BUILD_MODULES)
 
@@ -84,12 +82,6 @@ fetch:
 install:
 	mkdir -p $(INSTALLTARGET)
 	cp -rp $(P5TMPDIST)/dest/lib/perl5 $(INSTALLTARGET)
-
-installbuilddeps:
-	find $(P5TMPDIST)/bootstrap/lib -name \*.so -exec chmod 644 {} \; -exec strip {} \;
-	find $(P5TMPDIST)/bootstrap/lib -type f -name xsubpp -delete
-	mkdir -p $(INSTALLTARGET)
-	cp -rp $(P5TMPDIST)/bootstrap/lib/perl5 $(INSTALLTARGET)
 
 deb: $(NAME)-$(VERSION).tar.gz
 	tar zxvf $(NAME)-$(VERSION).tar.gz
