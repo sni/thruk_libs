@@ -13,7 +13,6 @@ BuildRequires: make
 BuildRequires: rsync
 BuildRequires: gcc
 BuildRequires: perl
-BuildRequires: perl-devel
 BuildRequires: perl(Bit::Vector)
 BuildRequires: perl(Cpanel::JSON::XS)
 BuildRequires: perl(Date::Calc)
@@ -25,6 +24,11 @@ BuildRequires: perl(LWP::Protocol::https)
 BuildRequires: perl(LWP::UserAgent)
 BuildRequires: perl(Module::Install)
 BuildRequires: perl(XML::Parser)
+
+%if %{defined suse_version}
+%else
+BuildRequires: perl-devel
+%endif
 
 Requires:      perl(Bit::Vector)
 Requires:      perl(Cpanel::JSON::XS)
