@@ -9,6 +9,7 @@ PERLVER=$(shell perl -e 'use Config; print $$Config{version}')
 
 override_dh_auto_configure:
 	dh_auto_configure
+	echo "libthruk: library-not-linked-against-libc [usr/lib/thruk/perl5/$(PERLARCH)/auto/Clone/Clone.so]" >> debian/libthruk.lintian-overrides
 
 override_dh_gencontrol:
 	dh_gencontrol -- -Vextra:Depends=perlapi-$(PERLVER)
