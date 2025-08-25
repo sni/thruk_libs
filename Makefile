@@ -23,6 +23,7 @@ MODULES = \
           HTML-Escape-1.10.tar.gz \
           Date-Calc-XS-6.4.tar.gz \
           Clone-0.39.tar.gz \
+          Mozilla-CA-20250602.tar.gz \
 
 
 build:
