@@ -25,10 +25,14 @@ BuildRequires: perl(LWP::UserAgent)
 BuildRequires: perl(Module::Install)
 BuildRequires: perl(XML::Parser)
 
-%if %{defined suse_version}
-%else
-BuildRequires: epel-release
+# rhel / rocky / alma / fedora
+%if 0%{?rhel} || 0%{?rocky} || 0%{?almalinux} || 0%{?fedora}
 BuildRequires: perl-devel
+%endif
+
+# rhel / rocky / alma
+%if 0%{?rhel} || 0%{?rocky} || 0%{?almalinux}
+BuildRequires: epel-release
 %endif
 
 Requires:      perl(Bit::Vector)
