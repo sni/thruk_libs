@@ -27,6 +27,7 @@ BuildRequires: perl(XML::Parser)
 
 %if %{defined suse_version}
 %else
+BuildRequires: epel-release
 BuildRequires: perl-devel
 %endif
 
